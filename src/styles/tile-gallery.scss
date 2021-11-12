@@ -1,0 +1,41 @@
+.tile-gallery {
+  height: auto;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.showcase {
+  height: 400px;
+  width: 800px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__img {
+    height: 400px;
+    width: 800px;
+  }
+}
+
+.tiles {
+  display: flex;
+  flex-direction: row;
+  // flex-wrap: wrap;
+  overflow: auto;
+  white-space: nowrap;
+  justify-content: space-between;
+  width: 60vw;
+  padding: 15px;
+  column-gap: 20px;
+}
+
+.tile-img {
+  height: 120px;
+  width: 240px;
+}

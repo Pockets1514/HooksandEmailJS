@@ -1,0 +1,64 @@
+.form-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+
+.form-field {
+  display: grid;
+  justify-items: start;
+  grid-template-columns: [s] 5px [label-s] 200px [label-e] 20px [input-s] 275px [input-e] 5px [e];
+  grid-template-rows: [s] 20px [e];
+  &__label {
+    grid-column: label-s/label-e;
+    grid-row: s/e;
+    font-size: 20px;
+  }
+  &__input {
+    height: 24px;
+    width: 275px;
+    border-width: 1px;
+    border-radius: 5px;
+    font-size: 15px;
+    text-align: center;
+    padding: 0px;
+    grid-column: input-s/input-e;
+    grid-row: s/e;
+  }
+}
+
+.form-textarea {
+  display: grid;
+  justify-items: start;
+  margin-bottom: 20px;
+  grid-template-columns: [s] 5px [label-s] 200px [label-e] 20px [area-s] 175px [area-e] 5px [e];
+  grid-template-rows: [s] 20px [e];
+
+  &__label {
+    font-size: 20px;
+    grid-column: label-s/label-e;
+    grid-row: s/e;
+  }
+  &__textarea {
+    width: 275px;
+    height: 100px;
+    border-radius: 5px;
+    grid-column: area-s/area-e;
+    grid-row: s/e;
+  }
+}
+
+.form-button-wrapper {
+  width: 100%;
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.form-button {
+  margin: 5px;
+  &__button {
+    padding: 3px;
+    border-radius: 50px;
+  }
+}

@@ -1,0 +1,4 @@
+use npm carosel react responsive package to build a carosel 
+https://www.npmjs.com/package/react-responsive-carousel
+https://www.npmjs.com/package/react-elastic-carousel
+

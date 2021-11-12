@@ -1,0 +1,24 @@
+.navbar-wrapper {
+  height: 40px;
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: rgba(35, 95, 35, 0.623);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  &__links {
+    display: flex;
+    justify-content: space-evenly;
+    width: 800px;
+  }
+}
+
+.navlink {
+  font-size: 20px;
+  color: white;
+}
+
+.selected {
+  color: brown;
+}
