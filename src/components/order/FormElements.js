@@ -7,14 +7,23 @@ export function FormTitle(props) {
 
 export class FormInput extends Component {
   render() {
-    const { className, placeholder, title, minDate, type, value, onChange } =
-      this.props;
+    const {
+      className,
+      placeholder,
+      title,
+      name,
+      minDate,
+      type,
+      value,
+      onChange,
+    } = this.props;
 
     return (
       <div className={`${className} form-field`}>
         <label className="form-field__label">{title}</label>
         <input
           className="form-field__input form-data"
+          name={name}
           value={value}
           type={type}
           placeholder={placeholder}

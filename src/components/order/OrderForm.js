@@ -5,6 +5,7 @@ import { FormInput, FormTextArea, FormButton, FormTitle } from "./FormElements";
 function reducer(state, action) {
   switch (action.type) {
     case "UPDATE_FIRST_NAME":
+      console.log(state.current);
       return {
         first_name: action.payload,
       };
@@ -51,15 +52,15 @@ function reducer(state, action) {
 
 export default function OrderForm() {
   const initialState = {
-    first_name: null,
-    last_name: null,
-    email: null,
-    cake_flavor: null,
-    frosting_flavor: null,
-    toppings: null,
-    filling: null,
-    quantity: null,
-    pickup_date: null,
+    first_name: "",
+    last_name: "",
+    email: "",
+    cake_flavor: "",
+    frosting_flavor: "",
+    toppings: "",
+    filling: "",
+    quantity: "",
+    pickup_date: "",
     special_requests: "Nothing Special, just be fabulous like always!",
   };
 
@@ -69,6 +70,7 @@ export default function OrderForm() {
 
   function sendEmail(e) {
     e.preventDefault();
+    console.log(state.current);
     emailjs
       .sendForm(
         "BohoToGoInbox",
