@@ -1,11 +1,16 @@
-.form-input-wrapper {
+.order-form {
   display: flex;
   flex-direction: column;
-  row-gap: 15px;
+  &__input-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 }
 
 .form-field {
   display: grid;
+  margin-bottom: 15px;
   justify-items: start;
   grid-template-columns: [s] 5px [label-s] 200px [label-e] 20px [input-s] 275px [input-e] 5px [e];
   grid-template-rows: [s] 20px [e];
@@ -32,16 +37,17 @@
   justify-items: start;
   margin-bottom: 20px;
   grid-template-columns: [s] 5px [label-s] 200px [label-e] 20px [area-s] 175px [area-e] 5px [e];
-  grid-template-rows: [s] 20px [e];
+  grid-template-rows: [s] 200px [e];
 
   &__label {
     font-size: 20px;
     grid-column: label-s/label-e;
     grid-row: s/e;
   }
-  &__textarea {
+  &__area {
     width: 275px;
     height: 100px;
+    resize: vertical;
     border-radius: 5px;
     grid-column: area-s/area-e;
     grid-row: s/e;

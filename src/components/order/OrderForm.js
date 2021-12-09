@@ -61,7 +61,7 @@ export default function OrderForm() {
     filling: "",
     quantity: "",
     pickup_date: "",
-    special_requests: "Nothing Special, just be fabulous like always!",
+    special_requests: "",
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -91,7 +91,7 @@ export default function OrderForm() {
   return (
     <form className="order-form" onSubmit={sendEmail} ref={form}>
       <FormTitle className="order-form__title" text="Order Form" />
-      <div className="form-input-wrapper">
+      <div className="order-form__input-wrapper">
         <FormInput
           className="first-name"
           name="first_name"
@@ -201,10 +201,10 @@ export default function OrderForm() {
           className="pickup-date"
           name="pickup_date"
           title="Pickup Date"
-          type="date"
+          type="text"
           value={state.pickup_date}
           min="10/14/2021"
-          placeholder="mm/dd"
+          placeholder="mm/dd/yyyy"
           onChange={(event) => {
             dispatch({
               type: "UPDATE_DATE",
@@ -213,12 +213,12 @@ export default function OrderForm() {
           }}
         />
         <FormTextArea
-          className="special-requests area"
+          className="special-requests-area"
           name="special_requests"
           title="Special Requests"
           type="textarea"
           value={state.special_requests}
-          placeholder="Feeing Peticular? Explain yo-self"
+          placeholder="Feeling Peticular?"
           onChange={(event) => {
             dispatch({
               type: "UPDATE_REQUESTS",
