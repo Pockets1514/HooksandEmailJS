@@ -5,7 +5,6 @@ import { FormInput, FormTextArea, FormButton, FormTitle } from "./FormElements";
 function reducer(state, action) {
   switch (action.type) {
     case "UPDATE_FIRST_NAME":
-      console.log(state.current);
       return {
         first_name: action.payload,
       };
@@ -42,9 +41,24 @@ function reducer(state, action) {
         pickup_date: action.payload,
       };
     case "UPDATE_REQUESTS":
+      console.log(state);
       return {
         special_requests: action.payload,
       };
+    case "RESET_FORM":
+      return {
+        first_name: "",
+        last_name: "",
+        email: "",
+        cake_flavor: "",
+        frosting_flavor: "",
+        toppings: "",
+        filling: "",
+        quantity: "",
+        pickup_date: "",
+        special_requests: "",
+      };
+
     default:
       return state;
   }
@@ -70,7 +84,6 @@ export default function OrderForm() {
 
   function sendEmail(e) {
     e.preventDefault();
-    console.log(state.current);
     emailjs
       .sendForm(
         "BohoToGoInbox",
@@ -81,10 +94,20 @@ export default function OrderForm() {
       .then(
         (result) => {
           console.log(result.text);
+          alert(
+            "Your request is on it's way to my inbox, but I am only one woman. Please allow up to one week for a response."
+          );
         },
         (error) => {
           console.log(error.text);
-        }
+          alert(
+            "Oh no :( There was an error with your request. Please try again.  If this continues to occur email bohotogomaine@gmail.com"
+          );
+        },
+        dispatch({
+          type: "RESET_FORM",
+          payload: null,
+        })
       );
   }
 
