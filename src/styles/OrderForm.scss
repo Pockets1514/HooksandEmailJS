@@ -68,3 +68,15 @@
     border-radius: 50px;
   }
 }
+
+@media (max-width: $breakpoint) {
+  .form-field {
+    margin-bottom: -5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    &__label {
+      visibility: hidden;
+    }
+  }
+}

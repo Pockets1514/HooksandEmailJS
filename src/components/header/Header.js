@@ -5,6 +5,7 @@ class Header extends Component {
     return (
       <div className="header">
         <p>The Boho Bakery of Maine</p>
+        <i class="fas fa-bars"></i>
       </div>
     );
   }

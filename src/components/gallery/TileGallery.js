@@ -28,7 +28,6 @@ class TileGallery extends Component {
         <div className="tiles">
           {images.map((image) => (
             <GalleryItem
-              key={image.index}
               className={`${image.slice(14, -14)}-image tile`}
               src={image}
               onClick={() => this.setState({ highlighted: image })}

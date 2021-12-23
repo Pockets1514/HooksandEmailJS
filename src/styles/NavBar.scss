@@ -22,3 +22,25 @@
 .selected {
   color: brown;
 }
+
+@media (max-width: $breakpoint) {
+  .navbar-wrapper {
+    visibility: visible;
+    background-color: $color-lightolive;
+    margin: 20px;
+    height: 200px;
+    width: 100vw;
+
+    &__links {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 800px;
+    }
+
+    .navlink {
+      font-size: 35px;
+      color: $color-darkgreen;
+    }
+  }
+}

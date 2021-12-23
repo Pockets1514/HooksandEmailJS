@@ -14,4 +14,26 @@
     font-weight: 500;
     color: $color-darkblue;
   }
+
+  i {
+    visibility: hidden;
+    font-size: 50px;
+    color: $color-darkblue;
+  }
+}
+
+@media (max-width: $breakpoint) {
+  .header {
+    margin: -20px;
+    padding: 15px 10px 10px 10px;
+    width: 100vw;
+    p {
+      font-size: 35px;
+      width: 80%;
+    }
+    i {
+      visibility: visible;
+      align-self: center;
+    }
+  }
 }

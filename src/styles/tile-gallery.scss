@@ -39,3 +39,21 @@
   height: 120px;
   width: 240px;
 }
+
+@media (max-width: $breakpoint) {
+  .showcase {
+    height: 80%;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__img {
+      height: 200px;
+      width: 400px;
+    }
+  }
+}
