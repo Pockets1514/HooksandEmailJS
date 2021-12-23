@@ -18,6 +18,8 @@
 
 @media (max-width: $breakpoint) {
   .home-wrapper {
+    position: fixed;
+    top: 110px;
     width: 100%;
     display: flex;
     flex-direction: column;

@@ -44,14 +44,14 @@
     grid-column: label-s/label-e;
     grid-row: s/e;
   }
-  &__area {
-    width: 275px;
-    height: 100px;
-    resize: vertical;
-    border-radius: 5px;
-    grid-column: area-s/area-e;
-    grid-row: s/e;
-  }
+  // &__area {
+  //   width: 275px;
+  //   height: 100px;
+  //   resize: vertical;
+  //   border-radius: 5px;
+  //   grid-column: area-s/area-e;
+  //   grid-row: s/e;
+  // }
 }
 
 .form-button-wrapper {
@@ -70,6 +70,11 @@
 }
 
 @media (max-width: $breakpoint) {
+  .order-form {
+    position: fixed;
+    top: 110px;
+  }
+
   .form-field {
     margin-bottom: -5px;
     display: flex;
@@ -77,6 +82,24 @@
     justify-content: flex-start;
     &__label {
       visibility: hidden;
+    }
+  }
+
+  .form-button-wrapper {
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .form-button {
+    margin: 5px;
+    &__button {
+      height: 60px;
+      width: 150px;
+      font-size: medium;
+      padding: 3px;
+      border-radius: 50px;
     }
   }
 }

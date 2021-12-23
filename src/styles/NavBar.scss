@@ -1,4 +1,4 @@
-.navbar-wrapper {
+.navbar {
   height: 40px;
   width: 100%;
   margin-bottom: 10px;
@@ -24,18 +24,30 @@
 }
 
 @media (max-width: $breakpoint) {
-  .navbar-wrapper {
-    visibility: visible;
+  .navbar {
     background-color: $color-lightolive;
-    margin: 20px;
-    height: 200px;
-    width: 100vw;
+    margin-top: 8px;
+    width: 110vw;
+    z-index: 10;
+  }
+
+  .hidden {
+    visibility: hidden;
+    height: 0px;
+  }
+
+  .visible {
+    visibility: visible;
+    height: 150px;
+    padding: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
 
     &__links {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      width: 800px;
     }
 
     .navlink {

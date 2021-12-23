@@ -41,6 +41,11 @@
 }
 
 @media (max-width: $breakpoint) {
+  .tile-gallery {
+    position: fixed;
+    top: 110px;
+  }
+
   .showcase {
     height: 80%;
     width: 80%;
