@@ -11,28 +11,94 @@ class TileGallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      highlighted: BlueberryLemon,
+      src: BlueberryLemon,
+      cake: "Lemon",
+      frosting: "Blueberry",
+      toppings: "Blueberries",
+      filling: "Blueberry jam",
+      quantity: 4,
     };
   }
   render() {
-    const images = [BlueberryLemon, Grasshopper, Lemon, PumpkinSpice, Smores];
+    const images = [
+      {
+        src: BlueberryLemon,
+        cake: "lemon",
+        frosting: "Blueberry",
+        toppings: "Blueberries",
+        filling: "Blueberry jam",
+        quantity: 4,
+      },
+      {
+        src: Grasshopper,
+        cake: "Chocolate",
+        frosting: "Mint",
+        toppings: "Ande's mints",
+        filling: "Mint Creme",
+        quantity: 4,
+      },
+      {
+        src: Lemon,
+        cake: "Lemon",
+        frosting: "Lemon",
+        toppings: "Lemon Slice",
+        filling: "None",
+        quantity: 4,
+      },
+      {
+        src: PumpkinSpice,
+        cake: "Pumpkin Spice",
+        frosting: "Cream Cheese Frosting",
+        toppings: "Pumpkin Candy",
+        filling: "None",
+        quantity: 4,
+      },
+      {
+        src: Smores,
+        cake: "Chocolate",
+        frosting: "Toasted Marshmallow",
+        toppings:
+          "Graham Cracker Crumble, Mini-Chocolate Chips, & Chocolate Drizzle",
+        filling: "None",
+        quantity: 4,
+      },
+    ];
+    const OrderNow = () => {};
+
     return (
       <div className="tile-gallery">
         <div className="showcase">
           <img
             className="showcase__img"
-            alt="some showcase"
-            src={this.state.highlighted}
+            alt="Mmmm, that was good."
+            src={this.state.src}
           />
+          <div className="showcase__recipe">
+            <ul>
+              <li>Cake : {this.state.cake}</li>
+              <li>Frosting : {this.state.frosting}</li>
+              <li>Toppings : {this.state.toppings}</li>
+              <li>Filling : {this.state.filling}</li>
+            </ul>
+            <button to="/order">Order Now!</button>
+          </div>
         </div>
         <div className="tiles">
           {images.map((image) => (
             <GalleryItem
-              className={`${image.slice(14, -14)}-image tile`}
-              src={image}
-              onClick={() => this.setState({ highlighted: image })}
-              title={image.slice(14, -14)}
-              alt="Hey, where's the cream filling?"
+              className={`${image.src.slice(14, -14)}-image tile`}
+              src={image.src}
+              onClick={() =>
+                this.setState({
+                  src: image.src,
+                  cake: image.cake,
+                  frosting: image.frosting,
+                  toppings: image.toppings,
+                  filling: image.filling,
+                })
+              }
+              title={image.src.slice(14, -14)}
+              alt="Oops, I must have eaten this one!"
             ></GalleryItem>
           ))}
         </div>
