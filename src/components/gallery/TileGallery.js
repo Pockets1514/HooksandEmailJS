@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import GalleryItem from "./GalleryItem";
 
 import BlueberryLemon from "./pictures/BlueberryLemon.jpeg";
@@ -15,10 +16,11 @@ class TileGallery extends Component {
       cake: "Lemon",
       frosting: "Blueberry",
       toppings: "Blueberries",
-      filling: "Blueberry jam",
+      filling: "Blueberry Jam",
       quantity: 4,
     };
   }
+
   render() {
     const images = [
       {
@@ -33,16 +35,16 @@ class TileGallery extends Component {
         src: Grasshopper,
         cake: "Chocolate",
         frosting: "Mint",
-        toppings: "Ande's mints",
-        filling: "Mint Creme",
+        toppings: "Andes Chocolate Mints",
+        filling: false,
         quantity: 4,
       },
       {
         src: Lemon,
         cake: "Lemon",
         frosting: "Lemon",
-        toppings: "Lemon Slice",
-        filling: "None",
+        toppings: "Lemon Slices",
+        filling: false,
         quantity: 4,
       },
       {
@@ -50,7 +52,7 @@ class TileGallery extends Component {
         cake: "Pumpkin Spice",
         frosting: "Cream Cheese Frosting",
         toppings: "Pumpkin Candy",
-        filling: "None",
+        filling: false,
         quantity: 4,
       },
       {
@@ -59,11 +61,10 @@ class TileGallery extends Component {
         frosting: "Toasted Marshmallow",
         toppings:
           "Graham Cracker Crumble, Mini-Chocolate Chips, & Chocolate Drizzle",
-        filling: "None",
+        filling: false,
         quantity: 4,
       },
     ];
-    const OrderNow = () => {};
 
     return (
       <div className="tile-gallery">
@@ -74,13 +75,14 @@ class TileGallery extends Component {
             src={this.state.src}
           />
           <div className="showcase__recipe">
-            <ul>
-              <li>Cake : {this.state.cake}</li>
-              <li>Frosting : {this.state.frosting}</li>
-              <li>Toppings : {this.state.toppings}</li>
-              <li>Filling : {this.state.filling}</li>
-            </ul>
-            <button to="/order">Order Now!</button>
+            <p>
+              A {this.state.cake} cupcake with {this.state.frosting} frosting
+              {this.state.filling ? `, filled with ${this.state.filling},` : ""}
+              {this.state.toppings ? ` and ${this.state.toppings}.` : "."}
+            </p>
+            <Link to="/order">
+              <button>Order Now!</button>
+            </Link>
           </div>
         </div>
         <div className="tiles">

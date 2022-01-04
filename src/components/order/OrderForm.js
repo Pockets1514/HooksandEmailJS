@@ -1,10 +1,6 @@
 import emailjs from "emailjs-com";
 import React, { useReducer, useRef } from "react";
-import {
-  FormInput,
-  /*FormTextArea,*/ FormButton,
-  FormTitle,
-} from "./FormElements";
+import { FormInput, FormButton, FormTitle } from "./FormElements";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -44,11 +40,6 @@ function reducer(state, action) {
       return {
         pickup_date: action.payload,
       };
-
-    // case "UPDATE_REQUESTS":
-    //         return {
-    //     requests: action.payload,
-    //   };
     case "RESET_FORM":
       return {
         first_name: "",
@@ -60,7 +51,6 @@ function reducer(state, action) {
         filling: "",
         quantity: "",
         pickup_date: "",
-        // requests: "",
       };
 
     default:
@@ -79,7 +69,6 @@ export default function OrderForm() {
     filling: "",
     quantity: "",
     pickup_date: "",
-    // requests: "",
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -239,20 +228,6 @@ export default function OrderForm() {
             });
           }}
         />
-        {/* <FormTextArea   (try to refactor to limit characters,  guess and check until something works)
-          className="special-requests-area"
-          name="requests"
-          title="Special Requests"
-          type="textarea"
-          value={state.requests}
-          placeholder="Feeling Peticular?"
-          onChange={(event) => {
-            dispatch({
-              type: "UPDATE_REQUESTS",
-              payload: event.target.value,
-            });
-          }}
-        /> */}
       </div>
       <div className="form-button-wrapper">
         <FormButton
