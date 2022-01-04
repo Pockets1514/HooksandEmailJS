@@ -26,7 +26,6 @@
 .tiles {
   display: flex;
   flex-direction: row;
-  // flex-wrap: wrap;
   overflow: auto;
   white-space: nowrap;
   justify-content: space-between;
@@ -40,25 +39,74 @@
   width: 240px;
 }
 
+.recipe {
+  height: 250px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 5px;
+  margin-left: 10px;
+  box-shadow: inset 1px 2px 15px 1px rgba(148, 150, 80, 0.688);
+
+  h2 {
+    margin: 0px;
+  }
+
+  p {
+    margin: 0px;
+    font-size: 20px;
+  }
+}
+
 @media (max-width: $breakpoint) {
   .tile-gallery {
+    display: flex;
+    flex-direction: column;
     position: fixed;
-    top: 110px;
+    top: 90px;
   }
 
   .showcase {
-    height: 80%;
-    width: 80%;
+    height: 250px;
+    width: 95%;
     margin-top: 20px;
     margin-bottom: 20px;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
     &__img {
-      height: 200px;
-      width: 400px;
+      visibility: hidden;
     }
+  }
+
+  .recipe {
+    height: 250px;
+    width: 350px;
+    z-index: 100;
+    position: absolute;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 5px;
+    margin-left: 10px;
+    box-shadow: inset 1px 2px 15px 1px rgba(148, 150, 80, 0.688);
+
+    h2 {
+      margin: 0px;
+    }
+
+    p {
+      margin: 0px;
+      font-size: 20px;
+    }
+  }
+
+  .tiles {
+    margin: 0px 10px 0px 10px;
   }
 }

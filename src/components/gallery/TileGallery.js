@@ -74,7 +74,8 @@ class TileGallery extends Component {
             alt="Mmmm, that was good."
             src={this.state.src}
           />
-          <div className="showcase__recipe">
+          <div className="recipe">
+            <h2>{this.state.src.slice(14, -14)}</h2>
             <p>
               A {this.state.cake} cupcake with {this.state.frosting} frosting
               {this.state.filling ? `, filled with ${this.state.filling},` : ""}
