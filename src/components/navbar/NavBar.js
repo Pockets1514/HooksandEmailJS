@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 class NavBar extends Component {
   render() {
     return (
-      <div className="navbar visible" id="navbar">
+      <div className="navbar hidden" id="navbar">
         <div className="navbar visible__links">
           <Link className="navlink" to="/home">
             Home

@@ -5,10 +5,21 @@ import NavBar from "./components/navbar/NavBar";
 import Home from "./components/home/Home";
 import OrderForm from "./components/order/OrderForm";
 import TileGallery from "./components/gallery/TileGallery";
-
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
+  const [order, setOrder] = useState({
+    first_name: "",
+    email: "",
+    cake_flavor: "",
+    frosting_flavor: "",
+    toppings: "",
+    filling: "",
+    quantity: "",
+    pickup_date: "",
+  });
+
   return (
     <div className="App">
       <Header />
@@ -17,7 +28,10 @@ function App() {
         <Routes>
           <Route path="/home" element={<Home />} />
 
-          <Route path="/order" element={<OrderForm />} />
+          <Route
+            path="/order"
+            element={<OrderForm order={order} setOrder={setOrder} />}
+          />
 
           <Route path="/gallery" element={<TileGallery />} />
         </Routes>

@@ -59,17 +59,19 @@ function reducer(state, action) {
 }
 
 export default function OrderForm() {
-  const initialState = {
-    first_name: "",
-    last_name: "",
-    email: "",
-    cake_flavor: "",
-    frosting_flavor: "",
-    toppings: "",
-    filling: "",
-    quantity: "",
-    pickup_date: "",
-  };
+  const initialState = [
+    {
+      first_name: "",
+      last_name: "",
+      email: "",
+      cake_flavor: "",
+      frosting_flavor: "",
+      toppings: "",
+      filling: "",
+      quantity: "",
+      pickup_date: "",
+    },
+  ];
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
