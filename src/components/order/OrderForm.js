@@ -118,6 +118,12 @@ export default function OrderForm(props) {
           onChange={handleChange}
         />
       </div>
+      <div className="order-image-wrapper">
+        <img
+          src={props.order.src}
+          alt="Looking for Inspiration? Check out the Gallery."
+        ></img>
+      </div>
       <div className="form-button-wrapper">
         <FormButton
           className="order-form__submit-order "

@@ -9,8 +9,8 @@ class TileGallery extends Component {
   }
 
   render() {
-    const handleOrder = () => {
-      console.log(this.props);
+    const handleOrder = (event) => {
+      this.props.onChange(event.target.value);
     };
 
     return (
@@ -19,16 +19,21 @@ class TileGallery extends Component {
           <img
             className="showcase__img"
             alt="Mmmm, that was good."
-            src={this.props.src}
+            src={this.props.order.src}
           />
           <div className="recipe">
             <h2>{this.props.order.src.slice(14, -14)}</h2>
             <p>
-              A {this.props.cake} cupcake with {this.props.frosting} frosting
-              {this.props.filling ? `, filled with ${this.props.filling},` : ""}
-              {this.props.toppings ? ` and ${this.props.toppings}.` : "."}
+              A {this.props.order.cake_flavor} cupcake with{" "}
+              {this.props.order.frosting_flavor} frosting
+              {this.props.order.filling
+                ? `, filled with ${this.props.order.filling},`
+                : ""}
+              {this.props.order.toppings
+                ? ` and ${this.props.order.toppings}.`
+                : "."}
             </p>
-            <Link to="/order" onClick={handleOrder()}>
+            <Link to="/order" onClick={handleOrder}>
               <button>Order Now!</button>
             </Link>
           </div>
