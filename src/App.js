@@ -20,6 +20,10 @@ function App() {
     pickup_date: "",
   });
 
+  const handleChange = (NewOrder) => {
+    setOrder(NewOrder);
+  };
+
   return (
     <div className="App">
       <Header />
@@ -30,7 +34,7 @@ function App() {
 
           <Route
             path="/order"
-            element={<OrderForm order={order} setOrder={setOrder} />}
+            element={<OrderForm order={order} onchange={handleChange} />}
           />
 
           <Route path="/gallery" element={<TileGallery />} />
