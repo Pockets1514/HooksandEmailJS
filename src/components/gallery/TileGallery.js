@@ -2,69 +2,16 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import GalleryItem from "./GalleryItem";
 
-import BlueberryLemon from "./pictures/BlueberryLemon.jpeg";
-import Grasshopper from "./pictures/Grasshopper.jpeg";
-import Lemon from "./pictures/Lemon.jpeg";
-import PumpkinSpice from "./pictures/PumpkinSpice.jpeg";
-import Smores from "./pictures/Smores.jpeg";
-
 class TileGallery extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      src: BlueberryLemon,
-      cake: "Lemon",
-      frosting: "Blueberry",
-      toppings: "Blueberries",
-      filling: "Blueberry Jam",
-      quantity: 4,
-    };
+    this.props = props;
   }
 
   render() {
-    const images = [
-      {
-        src: BlueberryLemon,
-        cake: "lemon",
-        frosting: "Blueberry",
-        toppings: "Blueberries",
-        filling: "Blueberry jam",
-        quantity: 4,
-      },
-      {
-        src: Grasshopper,
-        cake: "Chocolate",
-        frosting: "Mint",
-        toppings: "Andes Chocolate Mints",
-        filling: false,
-        quantity: 4,
-      },
-      {
-        src: Lemon,
-        cake: "Lemon",
-        frosting: "Lemon",
-        toppings: "Lemon Slices",
-        filling: false,
-        quantity: 4,
-      },
-      {
-        src: PumpkinSpice,
-        cake: "Pumpkin Spice",
-        frosting: "Cream Cheese Frosting",
-        toppings: "Pumpkin Candy",
-        filling: false,
-        quantity: 4,
-      },
-      {
-        src: Smores,
-        cake: "Chocolate",
-        frosting: "Toasted Marshmallow",
-        toppings:
-          "Graham Cracker Crumble, Mini-Chocolate Chips, & Chocolate Drizzle",
-        filling: false,
-        quantity: 4,
-      },
-    ];
+    const handleOrder = () => {
+      console.log(this.props);
+    };
 
     return (
       <div className="tile-gallery">
@@ -72,22 +19,22 @@ class TileGallery extends Component {
           <img
             className="showcase__img"
             alt="Mmmm, that was good."
-            src={this.state.src}
+            src={this.props.src}
           />
           <div className="recipe">
-            <h2>{this.state.src.slice(14, -14)}</h2>
+            <h2>{this.props.order.src.slice(14, -14)}</h2>
             <p>
-              A {this.state.cake} cupcake with {this.state.frosting} frosting
-              {this.state.filling ? `, filled with ${this.state.filling},` : ""}
-              {this.state.toppings ? ` and ${this.state.toppings}.` : "."}
+              A {this.props.cake} cupcake with {this.props.frosting} frosting
+              {this.props.filling ? `, filled with ${this.props.filling},` : ""}
+              {this.props.toppings ? ` and ${this.props.toppings}.` : "."}
             </p>
-            <Link to="/order">
+            <Link to="/order" onClick={handleOrder()}>
               <button>Order Now!</button>
             </Link>
           </div>
         </div>
         <div className="tiles">
-          {images.map((image) => (
+          {this.props.images.map((image) => (
             <GalleryItem
               className={`${image.src.slice(14, -14)}-image tile`}
               src={image.src}
