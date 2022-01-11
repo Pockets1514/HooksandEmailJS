@@ -34,7 +34,7 @@ function App() {
 
           <Route
             path="/order"
-            element={<OrderForm order={order} onchange={handleChange} />}
+            element={<OrderForm order={order} onChange={handleChange} />}
           />
 
           <Route path="/gallery" element={<TileGallery />} />

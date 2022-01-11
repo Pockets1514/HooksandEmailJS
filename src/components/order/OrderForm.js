@@ -1,79 +1,11 @@
 import emailjs from "emailjs-com";
-import React, { useReducer, useRef } from "react";
+import React, { useRef } from "react";
 import { FormInput, FormButton, FormTitle } from "./FormElements";
 
-function reducer(state, action) {
-  switch (action.type) {
-    case "UPDATE_FIRST_NAME":
-      return {
-        first_name: action.payload,
-      };
-    case "UPDATE_LAST_NAME":
-      return {
-        last_name: action.payload,
-      };
-    case "UPDATE_EMAIL":
-      return {
-        email: action.payload,
-      };
-    case "UPDATE_CAKE":
-      return {
-        cake_flavor: action.payload,
-      };
-    case "UPDATE_FROSTING":
-      return {
-        frosting_flavor: action.payload,
-      };
-    case "UPDATE_TOPPINGS":
-      return {
-        toppings: action.payload,
-      };
-    case "UPDATE_FILLING":
-      return {
-        filling: action.payload,
-      };
-    case "UPDATE_QUANTITY":
-      return {
-        quantity: action.payload,
-      };
-    case "UPDATE_DATE":
-      return {
-        pickup_date: action.payload,
-      };
-    case "RESET_FORM":
-      return {
-        first_name: "",
-        last_name: "",
-        email: "",
-        cake_flavor: "",
-        frosting_flavor: "",
-        toppings: "",
-        filling: "",
-        quantity: "",
-        pickup_date: "",
-      };
-
-    default:
-      return state;
-  }
-}
-
-export default function OrderForm() {
-  const initialState = [
-    {
-      first_name: "",
-      last_name: "",
-      email: "",
-      cake_flavor: "",
-      frosting_flavor: "",
-      toppings: "",
-      filling: "",
-      quantity: "",
-      pickup_date: "",
-    },
-  ];
-
-  const [state, dispatch] = useReducer(reducer, initialState);
+export default function OrderForm(props) {
+  const handleChange = (event) => {
+    props.onChange(event.target.value);
+  };
 
   const form = useRef();
 
@@ -98,11 +30,11 @@ export default function OrderForm() {
           alert(
             "Oh no :( There was an error with your request. Please try again.  If this continues to occur email bohotogomaine@gmail.com"
           );
-        },
-        dispatch({
-          type: "RESET_FORM",
-          payload: null,
-        })
+        }
+        // dispatch({
+        //   type: "RESET_FORM",
+        //   payload: null,
+        // })
       );
   }
 
@@ -114,121 +46,76 @@ export default function OrderForm() {
           className="first-name"
           name="first_name"
           title="First Name"
-          value={state.first_name}
+          value={props.order.first_name}
           placeholder="First Name"
-          onChange={(event) => {
-            dispatch({
-              type: "UPDATE_FIRST_NAME",
-              payload: event.target.value,
-            });
-          }}
+          onChange={handleChange}
         />
         <FormInput
           className="last-name"
           name="last_name"
           title="Last Name"
-          value={state.last_name}
+          value={props.order.last_name}
           placeholder="Last Name"
-          onChange={(event) => {
-            dispatch({
-              type: "UPDATE_LAST_NAME",
-              payload: event.target.value,
-            });
-          }}
+          onChange={handleChange}
         />
         <FormInput
           className="email"
           name="email"
           title="Email Address"
-          value={state.email}
+          value={props.order.email}
           type="email"
           placeholder="Email Address"
-          onChange={(event) => {
-            dispatch({
-              type: "UPDATE_EMAIL",
-              payload: event.target.value,
-            });
-          }}
+          onChange={handleChange}
         />
         <FormInput
           className="cake-flavor"
           name="cake_flavor"
           title="Cake Flavor"
-          value={state.cake_flavor}
+          value={props.order.cake_flavor}
           placeholder="Cake Flavor"
-          onChange={(event) => {
-            dispatch({
-              type: "UPDATE_CAKE",
-              payload: event.target.value,
-            });
-          }}
+          onChange={handleChange}
         />
         <FormInput
           className="frosting-flavor"
           name="frosting_flavor"
           title="Frosting Flavor"
-          value={state.frosting_flavor}
+          value={props.order.frosting_flavor}
           placeholder="Frosting Flavor"
-          onChange={(event) => {
-            dispatch({
-              type: "UPDATE_FROSTING",
-              payload: event.target.value,
-            });
-          }}
+          onChange={handleChange}
         />
         <FormInput
           className="toppings"
           name="toppings"
           title="Toppings"
-          value={state.toppings}
+          value={props.order.toppings}
           placeholder="Toppings"
-          onChange={(event) => {
-            dispatch({
-              type: "UPDATE_TOPPINGS",
-              payload: event.target.value,
-            });
-          }}
+          onChange={handleChange}
         />
         <FormInput
           className="filling"
           name="filling"
           title="Filling"
-          value={state.filling}
+          value={props.order.filling}
           placeholder="Filling"
-          onChange={(event) => {
-            dispatch({
-              type: "UPDATE_FILLING",
-              payload: event.target.value,
-            });
-          }}
+          onChange={handleChange}
         />
         <FormInput
           className="quantity"
           name="quantity"
           title="Quantity"
-          value={state.quantity}
+          value={props.order.quantity}
           placeholder="Quantity"
-          onChange={(event) => {
-            dispatch({
-              type: "UPDATE_QUANTITY",
-              payload: event.target.value,
-            });
-          }}
+          onChange={handleChange}
         />
         <FormInput
           className="pickup-date"
           name="pickup_date"
           title="Pickup Date"
           type="text"
-          value={state.pickup_date}
+          value={props.order.pickup_date}
           min="10/14/2021"
           placeholder="mm/dd/yyyy"
-          onChange={(event) => {
-            dispatch({
-              type: "UPDATE_DATE",
-              payload: event.target.value,
-            });
-          }}
+          onChange={handleChange}
         />
       </div>
       <div className="form-button-wrapper">
