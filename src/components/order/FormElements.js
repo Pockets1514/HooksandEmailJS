@@ -56,22 +56,4 @@ export class FormButton extends Component {
   }
 }
 
-export class FormTextArea extends Component {
-  render() {
-    const { className, title, type, value, placeholder, onChange } = this.props;
-    return (
-      <div className={`${className} form-textarea`}>
-        <label className="form-textarea__label">{title}</label>
-        <textarea
-          className="form-textarea__area form-data"
-          type={type}
-          value={value}
-          placeholder={placeholder}
-          onChange={onChange}
-        />
-      </div>
-    );
-  }
-}
-
 export default FormInput;
