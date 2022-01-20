@@ -1,13 +1,28 @@
 import emailjs from "emailjs-com";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { FormInput, FormButton, FormTitle } from "./FormElements";
 
-export default function OrderForm(props) {
-  const handleChange = (event) => {
-    props.onChange(event.target.value);
-  };
+export default function CustomOrderForm() {
+  const [order, setOrder] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    cake_flavor: "",
+    frosting_flavor: "",
+    toppings: "",
+    filling: "",
+    quantity: "",
+    pickup_date: "",
+    src: "",
+  });
 
   const form = useRef();
+
+  const handleChange = ({ order }) => {
+    setOrder({
+      ...order,
+    });
+  };
 
   function sendEmail(e) {
     e.preventDefault();
@@ -46,7 +61,7 @@ export default function OrderForm(props) {
           className="first-name"
           name="first_name"
           title="First Name"
-          value={props.order.first_name}
+          value={order.first_name}
           placeholder="First Name"
           onChange={handleChange}
         />
@@ -54,7 +69,7 @@ export default function OrderForm(props) {
           className="last-name"
           name="last_name"
           title="Last Name"
-          value={props.order.last_name}
+          value={order.last_name}
           placeholder="Last Name"
           onChange={handleChange}
         />
@@ -62,7 +77,7 @@ export default function OrderForm(props) {
           className="email"
           name="email"
           title="Email Address"
-          value={props.order.email}
+          value={order.email}
           type="email"
           placeholder="Email Address"
           onChange={handleChange}
@@ -71,7 +86,7 @@ export default function OrderForm(props) {
           className="cake-flavor"
           name="cake_flavor"
           title="Cake Flavor"
-          value={props.order.cake_flavor}
+          value={order.cake_flavor}
           placeholder="Cake Flavor"
           onChange={handleChange}
         />
@@ -79,7 +94,7 @@ export default function OrderForm(props) {
           className="frosting-flavor"
           name="frosting_flavor"
           title="Frosting Flavor"
-          value={props.order.frosting_flavor}
+          value={order.frosting_flavor}
           placeholder="Frosting Flavor"
           onChange={handleChange}
         />
@@ -87,7 +102,7 @@ export default function OrderForm(props) {
           className="toppings"
           name="toppings"
           title="Toppings"
-          value={props.order.toppings}
+          value={order.toppings}
           placeholder="Toppings"
           onChange={handleChange}
         />
@@ -95,7 +110,7 @@ export default function OrderForm(props) {
           className="filling"
           name="filling"
           title="Filling"
-          value={props.order.filling}
+          value={order.filling}
           placeholder="Filling"
           onChange={handleChange}
         />
@@ -103,7 +118,7 @@ export default function OrderForm(props) {
           className="quantity"
           name="quantity"
           title="Quantity"
-          value={props.order.quantity}
+          value={order.quantity}
           placeholder="Quantity"
           onChange={handleChange}
         />
@@ -112,18 +127,11 @@ export default function OrderForm(props) {
           name="pickup_date"
           title="Pickup Date"
           type="text"
-          value={props.order.pickup_date}
+          value={order.pickup_date}
           min="10/14/2021"
           placeholder="mm/dd/yyyy"
           onChange={handleChange}
         />
-      </div>
-      <div className="order-form-image-wrapper">
-        <img
-          id="order-form-image"
-          src={props.order.src}
-          alt="Looking for Inspiration? Check out the Gallery."
-        ></img>
       </div>
       <div className="form-button-wrapper">
         <FormButton
