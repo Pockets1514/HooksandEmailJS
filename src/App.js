@@ -1,9 +1,10 @@
+import React, { useState } from "react";
 import "./App.css";
 import "./styles/index.scss";
 import Header from "./components/header/Header";
 import NavBar from "./components/navbar/NavBar";
 import Home from "./components/home/Home";
-import GalleryOrderForm from "./components/order/GalleryOrderForm";
+// import GalleryOrderForm from "./components/order/GalleryOrderForm";
 import CustomOrderForm from "./components/order/CustomOrderForm";
 import TileGallery from "./components/gallery/TileGallery";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -21,6 +22,19 @@ import CoconutRaspberry from "./components/gallery/pictures/CoconutRaspberry.jpe
 import CookiesAndCream from "./components/gallery/pictures/Cookies&Cream.jpeg";
 
 export default function App() {
+  const [order, setOrder] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    src: BlueberryLemon,
+    cake: "lemon",
+    frosting: "blueberry",
+    toppings: "blueberries",
+    filling: "blueberry jam",
+    quantity: 6,
+    pickup_date: "",
+  });
+
   const images = [
     {
       src: BlueberryLemon,
@@ -123,12 +137,18 @@ export default function App() {
           <Route path="/home" element={<Home />} />
           <Route
             path="/customorder"
-            element={<CustomOrderForm images={images} />}
+            element={
+              <CustomOrderForm
+                images={images}
+                order={order}
+                setOrder={setOrder}
+              />
+            }
           />
-          <Route
+          {/* <Route
             path="/galleryorder"
             element={<GalleryOrderForm images={images} />}
-          />
+          /> */}
           <Route path="/gallery" element={<TileGallery images={images} />} />
         </Routes>
       </Router>

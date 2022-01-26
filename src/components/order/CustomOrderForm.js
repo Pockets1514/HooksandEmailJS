@@ -1,27 +1,13 @@
 import emailjs from "emailjs-com";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { FormInput, FormButton, FormTitle } from "./FormElements";
 
-export default function CustomOrderForm() {
-  const [order, setOrder] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    cake_flavor: "",
-    frosting_flavor: "",
-    toppings: "",
-    filling: "",
-    quantity: "",
-    pickup_date: "",
-    src: "",
-  });
-
+export default function CustomOrderForm(order) {
   const form = useRef();
 
-  const handleChange = ({ order }) => {
-    setOrder({
-      ...order,
-    });
+  const handleChange = () => {
+    const newValue = this.e.target;
+    order.setOrder(newValue);
   };
 
   function sendEmail(e) {
@@ -63,7 +49,7 @@ export default function CustomOrderForm() {
           title="First Name"
           value={order.first_name}
           placeholder="First Name"
-          onChange={handleChange}
+          onChange={() => handleChange}
         />
         <FormInput
           className="last-name"
@@ -71,7 +57,7 @@ export default function CustomOrderForm() {
           title="Last Name"
           value={order.last_name}
           placeholder="Last Name"
-          onChange={handleChange}
+          onChange={() => handleChange}
         />
         <FormInput
           className="email"
@@ -80,7 +66,7 @@ export default function CustomOrderForm() {
           value={order.email}
           type="email"
           placeholder="Email Address"
-          onChange={handleChange}
+          onChange={() => handleChange}
         />
         <FormInput
           className="cake-flavor"
@@ -88,7 +74,7 @@ export default function CustomOrderForm() {
           title="Cake Flavor"
           value={order.cake_flavor}
           placeholder="Cake Flavor"
-          onChange={handleChange}
+          onChange={() => handleChange}
         />
         <FormInput
           className="frosting-flavor"
@@ -96,7 +82,7 @@ export default function CustomOrderForm() {
           title="Frosting Flavor"
           value={order.frosting_flavor}
           placeholder="Frosting Flavor"
-          onChange={handleChange}
+          onChange={() => handleChange}
         />
         <FormInput
           className="toppings"
@@ -104,7 +90,7 @@ export default function CustomOrderForm() {
           title="Toppings"
           value={order.toppings}
           placeholder="Toppings"
-          onChange={handleChange}
+          onChange={() => handleChange}
         />
         <FormInput
           className="filling"
@@ -112,7 +98,7 @@ export default function CustomOrderForm() {
           title="Filling"
           value={order.filling}
           placeholder="Filling"
-          onChange={handleChange}
+          onChange={() => handleChange}
         />
         <FormInput
           className="quantity"
@@ -120,7 +106,7 @@ export default function CustomOrderForm() {
           title="Quantity"
           value={order.quantity}
           placeholder="Quantity"
-          onChange={handleChange}
+          onChange={() => handleChange}
         />
         <FormInput
           className="pickup-date"
@@ -130,7 +116,7 @@ export default function CustomOrderForm() {
           value={order.pickup_date}
           min="10/14/2021"
           placeholder="mm/dd/yyyy"
-          onChange={handleChange}
+          onChange={() => handleChange}
         />
       </div>
       <div className="form-button-wrapper">
