@@ -13,49 +13,104 @@ import Grasshopper from "./components/gallery/pictures/Grasshopper.jpeg";
 import Lemon from "./components/gallery/pictures/Lemon.jpeg";
 import PumpkinSpice from "./components/gallery/pictures/PumpkinSpice.jpeg";
 import Smores from "./components/gallery/pictures/Smores.jpeg";
+import UnicornPrincess from "./components/gallery/pictures/UnicornPrincess.jpeg";
+import CaramelApple from "./components/gallery/pictures/CaramelApple.jpeg";
+import Butterscotch from "./components/gallery/pictures/Butterscotch.jpeg";
+import ChocolateSaltedCaramel from "./components/gallery/pictures/ChocolateSaltedCaramel.jpeg";
+import CoconutRaspberry from "./components/gallery/pictures/CoconutRaspberry.jpeg";
+import CookiesAndCream from "./components/gallery/pictures/Cookies&Cream.jpeg";
 
 export default function App() {
   const images = [
     {
       src: BlueberryLemon,
-      cake: "Lemon",
-      frosting: "Blueberry",
-      toppings: "Blueberries",
-      filling: "Blueberry jam",
-      quantity: 4,
+      cake: "lemon",
+      frosting: "blueberry",
+      toppings: "blueberries",
+      filling: "blueberry jam",
+      quantity: 6,
     },
     {
       src: Grasshopper,
-      cake: "Chocolate",
-      frosting: "Mint",
-      toppings: "Andes Chocolate Mints",
+      cake: "chocolate",
+      frosting: "mint",
+      toppings: "andes chocolate mints",
       filling: false,
-      quantity: 4,
+      quantity: 6,
     },
     {
       src: Lemon,
-      cake: "Lemon",
-      frosting: "Lemon",
-      toppings: "Lemon Slices",
+      cake: "lemon",
+      frosting: "lemon",
+      toppings: "lemon slices",
       filling: false,
-      quantity: 4,
+      quantity: 6,
     },
     {
       src: PumpkinSpice,
-      cake: "Pumpkin Spice",
-      frosting: "Cream Cheese Frosting",
-      toppings: "Pumpkin Candy",
+      cake: "pumpkin spice",
+      frosting: "cream cheese frosting",
+      toppings: "pumpkin candy",
       filling: false,
-      quantity: 4,
+      quantity: 6,
     },
     {
       src: Smores,
-      cake: "Chocolate",
-      frosting: "Toasted Marshmallow",
+      cake: "chocolate",
+      frosting: "toasted marshmallow",
       toppings:
-        "Graham Cracker Crumble, Mini-Chocolate Chips, & Chocolate Drizzle",
+        "graham cracker crumble, mini-chocolate chips, & chocolate drizzle",
       filling: false,
-      quantity: 4,
+      quantity: 6,
+    },
+    {
+      src: UnicornPrincess,
+      cake: "funfetti",
+      frosting: "almond",
+      toppings:
+        "assorted pastel sprinkles and candie, featuring unicorn accents",
+      filling: false,
+      quantity: 6,
+    },
+    {
+      src: CaramelApple,
+      cake: "apple",
+      frosting: "caramel",
+      toppings: "caremel candies",
+      filling: false,
+      quantity: 6,
+    },
+    {
+      src: Butterscotch,
+      cake: "butterscotch",
+      frosting: "butterscotch",
+      toppings: ", can you believe it, butterscotch chips",
+      filling: false,
+      quantity: 6,
+    },
+    {
+      src: ChocolateSaltedCaramel,
+      cake: "chocolate",
+      frosting: "caramel",
+      toppings: "soft caramels and carmel drizzle",
+      filling: false,
+      quantity: 6,
+    },
+    {
+      src: CoconutRaspberry,
+      cake: "coconut",
+      frosting: "coconut",
+      toppings: "a fresh raspberry",
+      filling: "raspberry coulis",
+      quantity: 6,
+    },
+    {
+      src: CookiesAndCream,
+      cake: "chocolate",
+      frosting: "cookies and cream style",
+      toppings: "chocolate cookie crumble",
+      filling: false,
+      quantity: 6,
     },
   ];
 

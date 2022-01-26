@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import GalleryOrderForm from "../order/GalleryOrderForm";
 import GalleryItem from "./GalleryItem";
 import BlueberryLemon from "./pictures/BlueberryLemon.jpeg";
 
