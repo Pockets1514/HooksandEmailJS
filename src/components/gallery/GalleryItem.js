@@ -2,9 +2,9 @@ import React, { Component } from "react";
 
 class GalleryItem extends Component {
   render() {
-    const { onClick, className, key, title, src, alt } = this.props;
+    const { onClick, className, title, src, alt } = this.props;
     return (
-      <div className="gallery-item" key={key}>
+      <div className="gallery-item">
         <img
           className={`img ${className}-img`}
           src={src}

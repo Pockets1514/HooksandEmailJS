@@ -39,6 +39,13 @@ export default function CustomOrderForm(order) {
       );
   }
 
+  let filledQuantity = order.order.quantity * 2.2;
+  let unfilledQuantity = order.order.quantity * 2;
+
+  const total = order.order.filling
+    ? `$ ${filledQuantity.toFixed(2)}`
+    : `$ ${unfilledQuantity.toFixed(2)}`;
+
   return (
     <form className="order-form" onSubmit={sendEmail} ref={form}>
       <FormTitle className="order-form__title" text="Order Form" />
@@ -47,7 +54,10 @@ export default function CustomOrderForm(order) {
           className="first-name"
           name="first_name"
           title="First Name"
-          value={order.first_name}
+          value={
+            order.order.first_name.charAt(0).toUpperCase() +
+            order.order.first_name.slice(1)
+          }
           placeholder="First Name"
           onChange={() => handleChange}
         />
@@ -55,7 +65,10 @@ export default function CustomOrderForm(order) {
           className="last-name"
           name="last_name"
           title="Last Name"
-          value={order.last_name}
+          value={
+            order.order.last_name.charAt(0).toUpperCase() +
+            order.order.last_name.slice(1)
+          }
           placeholder="Last Name"
           onChange={() => handleChange}
         />
@@ -63,7 +76,7 @@ export default function CustomOrderForm(order) {
           className="email"
           name="email"
           title="Email Address"
-          value={order.email}
+          value={order.order.email}
           type="email"
           placeholder="Email Address"
           onChange={() => handleChange}
@@ -72,7 +85,9 @@ export default function CustomOrderForm(order) {
           className="cake-flavor"
           name="cake_flavor"
           title="Cake Flavor"
-          value={order.cake_flavor}
+          value={
+            order.order.cake.charAt(0).toUpperCase() + order.order.cake.slice(1)
+          }
           placeholder="Cake Flavor"
           onChange={() => handleChange}
         />
@@ -80,7 +95,10 @@ export default function CustomOrderForm(order) {
           className="frosting-flavor"
           name="frosting_flavor"
           title="Frosting Flavor"
-          value={order.frosting_flavor}
+          value={
+            order.order.frosting.charAt(0).toUpperCase() +
+            order.order.frosting.slice(1)
+          }
           placeholder="Frosting Flavor"
           onChange={() => handleChange}
         />
@@ -88,7 +106,10 @@ export default function CustomOrderForm(order) {
           className="toppings"
           name="toppings"
           title="Toppings"
-          value={order.toppings}
+          value={
+            order.order.toppings.charAt(0).toUpperCase() +
+            order.order.toppings.slice(1)
+          }
           placeholder="Toppings"
           onChange={() => handleChange}
         />
@@ -96,7 +117,10 @@ export default function CustomOrderForm(order) {
           className="filling"
           name="filling"
           title="Filling"
-          value={order.filling}
+          value={
+            order.order.filling.charAt(0).toUpperCase() +
+            order.order.filling.slice(1)
+          }
           placeholder="Filling"
           onChange={() => handleChange}
         />
@@ -104,7 +128,7 @@ export default function CustomOrderForm(order) {
           className="quantity"
           name="quantity"
           title="Quantity"
-          value={order.quantity}
+          value={order.order.quantity}
           placeholder="Quantity"
           onChange={() => handleChange}
         />
@@ -113,7 +137,7 @@ export default function CustomOrderForm(order) {
           name="pickup_date"
           title="Pickup Date"
           type="text"
-          value={order.pickup_date}
+          value={order.order.pickup_date}
           min="10/14/2021"
           placeholder="mm/dd/yyyy"
           onChange={() => handleChange}
@@ -127,6 +151,10 @@ export default function CustomOrderForm(order) {
           type="Submit"
           largeButton
         />
+      </div>
+      <div className="total-wrapper">
+        <p className="total-title">Estimated Total</p>
+        <p className="total-price">{total}</p>
       </div>
     </form>
   );

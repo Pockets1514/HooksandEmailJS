@@ -4,7 +4,6 @@ import "./styles/index.scss";
 import Header from "./components/header/Header";
 import NavBar from "./components/navbar/NavBar";
 import Home from "./components/home/Home";
-// import GalleryOrderForm from "./components/order/GalleryOrderForm";
 import CustomOrderForm from "./components/order/CustomOrderForm";
 import TileGallery from "./components/gallery/TileGallery";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -23,8 +22,8 @@ import CookiesAndCream from "./components/gallery/pictures/Cookies&Cream.jpeg";
 
 export default function App() {
   const [order, setOrder] = useState({
-    first_name: "",
-    last_name: "",
+    first_name: "steven",
+    last_name: "brown",
     email: "",
     src: BlueberryLemon,
     cake: "lemon",
@@ -43,6 +42,7 @@ export default function App() {
       toppings: "blueberries",
       filling: "blueberry jam",
       quantity: 6,
+      key: 0,
     },
     {
       src: Grasshopper,
@@ -51,6 +51,7 @@ export default function App() {
       toppings: "andes chocolate mints",
       filling: false,
       quantity: 6,
+      key: 1,
     },
     {
       src: Lemon,
@@ -59,6 +60,7 @@ export default function App() {
       toppings: "lemon slices",
       filling: false,
       quantity: 6,
+      key: 2,
     },
     {
       src: PumpkinSpice,
@@ -67,6 +69,7 @@ export default function App() {
       toppings: "pumpkin candy",
       filling: false,
       quantity: 6,
+      key: 3,
     },
     {
       src: Smores,
@@ -76,6 +79,7 @@ export default function App() {
         "graham cracker crumble, mini-chocolate chips, & chocolate drizzle",
       filling: false,
       quantity: 6,
+      key: 4,
     },
     {
       src: UnicornPrincess,
@@ -85,6 +89,7 @@ export default function App() {
         "assorted pastel sprinkles and candie, featuring unicorn accents",
       filling: false,
       quantity: 6,
+      key: 5,
     },
     {
       src: CaramelApple,
@@ -93,14 +98,16 @@ export default function App() {
       toppings: "caremel candies",
       filling: false,
       quantity: 6,
+      key: 6,
     },
     {
       src: Butterscotch,
       cake: "butterscotch",
       frosting: "butterscotch",
-      toppings: ", can you believe it, butterscotch chips",
+      toppings: "butterscotch chips",
       filling: false,
       quantity: 6,
+      key: 8,
     },
     {
       src: ChocolateSaltedCaramel,
@@ -109,6 +116,7 @@ export default function App() {
       toppings: "soft caramels and carmel drizzle",
       filling: false,
       quantity: 6,
+      key: 9,
     },
     {
       src: CoconutRaspberry,
@@ -117,6 +125,7 @@ export default function App() {
       toppings: "a fresh raspberry",
       filling: "raspberry coulis",
       quantity: 6,
+      key: 10,
     },
     {
       src: CookiesAndCream,
@@ -125,6 +134,7 @@ export default function App() {
       toppings: "chocolate cookie crumble",
       filling: false,
       quantity: 6,
+      key: 11,
     },
   ];
 
@@ -137,19 +147,14 @@ export default function App() {
           <Route path="/home" element={<Home />} />
           <Route
             path="/customorder"
+            element={<CustomOrderForm order={order} setOrder={setOrder} />}
+          />
+          <Route
+            path="/gallery"
             element={
-              <CustomOrderForm
-                images={images}
-                order={order}
-                setOrder={setOrder}
-              />
+              <TileGallery images={images} order={order} setOrder={setOrder} />
             }
           />
-          {/* <Route
-            path="/galleryorder"
-            element={<GalleryOrderForm images={images} />}
-          /> */}
-          <Route path="/gallery" element={<TileGallery images={images} />} />
         </Routes>
       </Router>
     </div>

@@ -1,21 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-// import GalleryOrderForm from "../order/GalleryOrderForm";
 import GalleryItem from "./GalleryItem";
-import BlueberryLemon from "./pictures/BlueberryLemon.jpeg";
 
-export default function TileGallery(props) {
-  const galleryProps = props;
-  const [showcase, setShowcase] = useState({
-    src: BlueberryLemon,
-    filling: "blueberry jam",
-    toppings: "blueberries",
-    cake: "lemon",
-    frosting: "blueberry",
-  });
-
-  const updateShowcase = (event) => {
-    setShowcase(event);
+export default function TileGallery(order) {
+  const updateShowcase = (image) => {
+    console.log(order);
+    console.log(image);
+    order.setOrder(image);
   };
 
   return (
@@ -24,39 +15,32 @@ export default function TileGallery(props) {
         <img
           className="showcase__img"
           alt="Mmmm, that was good."
-          src={showcase.src}
+          src={order.order.src}
         />
         <div className="recipe">
-          <h2>{showcase.src.slice(14, -14)}</h2>
+          <h2>{order.order.src.slice(14, -14)}</h2>
           <p>
-            A {showcase.cake} cupcake with {showcase.frosting} frosting
-            {showcase.filling ? `, filled with ${showcase.filling},` : ""}
-            {showcase.toppings
-              ? ` and  topped with ${showcase.toppings}.`
+            A {order.order.cake} cupcake with {order.order.frosting} frosting
+            {order.order.filling ? `, filled with ${order.order.filling},` : ""}
+            {order.order.toppings
+              ? ` and  topped with ${order.order.toppings}.`
               : "."}
           </p>
-          <Link to="/galleryorder" onClick={updateShowcase}>
+          <Link to="/customorder">
             <button>Order Now!</button>
           </Link>
         </div>
       </div>
       <div className="tiles">
-        {galleryProps.images.map((image) => (
+        {order.images.map((image) => (
           <GalleryItem
+            key={image.key}
             className={`${image.src.slice(14, -14)}-image tile`}
             src={image.src}
-            onClick={() => {
-              setShowcase({
-                src: image.src,
-                cake: image.cake,
-                frosting: image.frosting,
-                toppings: image.toppings,
-                filling: image.filling,
-              });
-            }}
+            onClick={() => updateShowcase(image)}
             title={image.src.slice(14, -14)}
             alt="Oops, I must have eaten this one!"
-          ></GalleryItem>
+          />
         ))}
       </div>
     </div>
