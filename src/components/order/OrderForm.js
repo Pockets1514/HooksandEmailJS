@@ -2,7 +2,7 @@ import emailjs from "emailjs-com";
 import React, { useRef } from "react";
 import { FormInput, FormButton, FormTitle } from "./FormElements";
 
-export default function CustomOrderForm(order) {
+export default function OrderForm(order) {
   const form = useRef();
 
   const handleChange = () => {

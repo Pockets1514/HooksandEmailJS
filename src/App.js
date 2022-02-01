@@ -4,7 +4,7 @@ import "./styles/index.scss";
 import Header from "./components/header/Header";
 import NavBar from "./components/navbar/NavBar";
 import Home from "./components/home/Home";
-import CustomOrderForm from "./components/order/CustomOrderForm";
+import OrderForm from "./components/order/OrderForm";
 import TileGallery from "./components/gallery/TileGallery";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -147,7 +147,7 @@ export default function App() {
           <Route path="/home" element={<Home />} />
           <Route
             path="/customorder"
-            element={<CustomOrderForm order={order} setOrder={setOrder} />}
+            element={<OrderForm order={order} setOrder={setOrder} />}
           />
           <Route
             path="/gallery"

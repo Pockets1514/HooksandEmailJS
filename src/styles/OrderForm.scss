@@ -1,6 +1,10 @@
 .order-form {
   display: flex;
   flex-direction: column;
+  background-color: rgb(252, 247, 240, 0.75);
+  padding: 5px;
+  border-radius: 10px;
+
   &__input-wrapper {
     display: flex;
     flex-direction: column;
@@ -11,13 +15,17 @@
 .form-field {
   display: grid;
   margin-bottom: 15px;
+
   justify-items: start;
-  grid-template-columns: [s] 5px [label-s] 200px [label-e] 20px [input-s] 275px [input-e] 5px [e];
+  grid-template-columns: [s] 5px [label-s] 140px [label-e]10px [input-s] 275px [input-e] 5px [e];
   grid-template-rows: [s] 20px [e];
   &__label {
+    display: flex;
+    align-items: center;
     grid-column: label-s/label-e;
     grid-row: s/e;
-    font-size: 20px;
+    font-size: 18px;
+    padding: 3px;
   }
   &__input {
     height: 24px;
