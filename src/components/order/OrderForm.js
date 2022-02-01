@@ -5,11 +5,6 @@ import { FormInput, FormButton, FormTitle } from "./FormElements";
 export default function OrderForm(order) {
   const form = useRef();
 
-  // function handleChange(e) {
-  //   console.log(e);
-
-  // }
-
   function sendEmail(e) {
     e.preventDefault();
     emailjs

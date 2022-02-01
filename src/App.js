@@ -3,6 +3,7 @@ import "./App.css";
 import "./styles/index.scss";
 import Header from "./components/header/Header";
 import NavBar from "./components/navbar/NavBar";
+import ShoppingCart from "./components/cart/ShoppingCart";
 import Home from "./components/home/Home";
 import OrderForm from "./components/order/OrderForm";
 import TileGallery from "./components/gallery/TileGallery";
@@ -26,12 +27,13 @@ export default function App() {
     last_name: "",
     email: "",
     src: BlueberryLemon,
-    cake: "lemon",
+    cake: "Lemon",
     frosting: "blueberry",
     toppings: "blueberries",
     filling: "blueberry jam",
     quantity: 6,
     pickup_date: "",
+    cart: [],
   });
 
   const images = [
@@ -157,6 +159,7 @@ export default function App() {
           />
         </Routes>
       </Router>
+      <ShoppingCart order={order} images={images} setOrder={setOrder} />
     </div>
   );
 }
