@@ -22,8 +22,8 @@ import CookiesAndCream from "./components/gallery/pictures/Cookies&Cream.jpeg";
 
 export default function App() {
   const [order, setOrder] = useState({
-    first_name: "steven",
-    last_name: "brown",
+    first_name: "",
+    last_name: "",
     email: "",
     src: BlueberryLemon,
     cake: "lemon",
