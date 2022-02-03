@@ -33,7 +33,26 @@ export default function App() {
     filling: "blueberry jam",
     quantity: 6,
     pickup_date: "",
-    cart: [],
+    cart: [
+      {
+        src: BlueberryLemon,
+        cake: "lemon",
+        frosting: "blueberry",
+        toppings: "blueberries",
+        filling: "blueberry jam",
+        quantity: 6,
+        key: 0,
+      },
+      {
+        src: Grasshopper,
+        cake: "chocolate",
+        frosting: "mint",
+        toppings: "andes chocolate mints",
+        filling: false,
+        quantity: 6,
+        key: 1,
+      },
+    ],
   });
 
   const images = [

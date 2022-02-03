@@ -44,6 +44,10 @@ export default function OrderForm(order) {
   return (
     <form className="order-form" onSubmit={sendEmail} ref={form}>
       <FormTitle className="order-form__title" text="Order Form" />
+      <p>
+        Have something in mind? Send your custom request <br />
+        with this form and maybe we can work it out!
+      </p>
       <div className="order-form__input-wrapper">
         <FormInput
           className="first-name"
