@@ -1,20 +1,20 @@
 import React from "react";
 
-export default function CartItem(
-  setOrder,
+export default function CartItem({
+  updateCart,
   key,
-  className,
   src,
   title,
   alt,
-  quantity
-) {
+  quantity,
+  filling,
+}) {
   const increaseQuantity = () => {
-    setOrder();
+    updateCart();
   };
 
   const decreaseQuantity = () => {
-    setOrder();
+    updateCart();
   };
 
   return (
@@ -22,6 +22,9 @@ export default function CartItem(
       <img className="cart-item__image" src={src} alt={alt}></img>
       <h1 className="cart-item__title">{title}</h1>
       <p className="cart-item__quantity">Quantity {quantity}</p>
+      <p className="cart-item__price">{`$ ${
+        filling ? quantity * 2.21 : quantity * 2
+      }`}</p>
       <button
         className="cart-item__button cart-item__plus"
         onClick={increaseQuantity}

@@ -1,29 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import GalleryItem from "./GalleryItem";
 
 export default function TileGallery(order) {
-  const updateShowcase = (image) => {
-    console.log(order);
-    console.log(image);
-    order.setOrder(image);
-  };
-
+  const [showcase, updateShowcase] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    cake: "",
+    frosting: "",
+    toppings: "",
+    filling: "",
+    quantity: 6,
+    src: "",
+  });
   return (
     <div className="tile-gallery">
       <div className="showcase">
         <img
           className="showcase__img"
           alt="Mmmm, that was good."
-          src={order.order.src}
+          src={showcase.src}
         />
         <div className="recipe">
-          <h2>{order.order.src.slice(14, -14)}</h2>
+          <h2>{showcase.src.slice(14, -14)}</h2>
           <p>
-            A {order.order.cake} cupcake with {order.order.frosting} frosting
-            {order.order.filling ? `, filled with ${order.order.filling},` : ""}
-            {order.order.toppings
-              ? ` and  topped with ${order.order.toppings}.`
+            A {showcase.cake} cupcake with {showcase.frosting} frosting
+            {showcase.filling ? `, filled with ${showcase.filling},` : ""}
+            {showcase.toppings
+              ? ` and  topped with ${showcase.toppings}.`
               : "."}
           </p>
           <Link to="/customorder">
@@ -32,13 +37,13 @@ export default function TileGallery(order) {
         </div>
       </div>
       <div className="tiles">
-        {order.images.map((image) => (
+        {order.products.map((product) => (
           <GalleryItem
-            key={image.key}
-            className={`${image.src.slice(14, -14)}-image tile`}
-            src={image.src}
-            onClick={() => updateShowcase(image)}
-            title={image.src.slice(14, -14)}
+            key={product.key}
+            className={`${product.src.slice(14, -14)}-product tile`}
+            src={product.src}
+            onClick={() => updateShowcase(product)}
+            title={product.src.slice(14, -14)}
             alt="Oops, I must have eaten this one!"
           />
         ))}

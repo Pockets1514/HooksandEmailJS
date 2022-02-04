@@ -22,40 +22,9 @@ import CoconutRaspberry from "./components/gallery/pictures/CoconutRaspberry.jpe
 import CookiesAndCream from "./components/gallery/pictures/Cookies&Cream.jpeg";
 
 export default function App() {
-  const [order, setOrder] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    src: BlueberryLemon,
-    cake: "Lemon",
-    frosting: "blueberry",
-    toppings: "blueberries",
-    filling: "blueberry jam",
-    quantity: 6,
-    pickup_date: "",
-    cart: [
-      {
-        src: BlueberryLemon,
-        cake: "lemon",
-        frosting: "blueberry",
-        toppings: "blueberries",
-        filling: "blueberry jam",
-        quantity: 6,
-        key: 0,
-      },
-      {
-        src: Grasshopper,
-        cake: "chocolate",
-        frosting: "mint",
-        toppings: "andes chocolate mints",
-        filling: false,
-        quantity: 6,
-        key: 1,
-      },
-    ],
-  });
+  const [cart, updateCart] = useState([]);
 
-  const images = [
+  const products = [
     {
       src: BlueberryLemon,
       cake: "lemon",
@@ -166,19 +135,20 @@ export default function App() {
         <NavBar />
         <Routes>
           <Route path="/home" element={<Home />} />
-          <Route
-            path="/customorder"
-            element={<OrderForm order={order} setOrder={setOrder} />}
-          />
+          <Route path="/customorder" element={<OrderForm />} />
           <Route
             path="/gallery"
             element={
-              <TileGallery images={images} order={order} setOrder={setOrder} />
+              <TileGallery
+                cart={cart}
+                products={products}
+                updateCart={updateCart}
+              />
             }
           />
         </Routes>
       </Router>
-      <ShoppingCart order={order} images={images} setOrder={setOrder} />
+      <ShoppingCart cart={cart} products={products} updateCart={updateCart} />
     </div>
   );
 }

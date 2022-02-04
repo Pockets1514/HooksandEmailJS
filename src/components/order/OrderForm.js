@@ -1,8 +1,19 @@
 import emailjs from "emailjs-com";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { FormInput, FormButton, FormTitle } from "./FormElements";
 
-export default function OrderForm(order) {
+export default function OrderForm() {
+  const [order, setOrder] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    cake: "",
+    frosting: "",
+    toppings: "",
+    filling: "",
+    quantity: 6,
+    pickup_date: "",
+  });
   const form = useRef();
 
   function sendEmail(e) {
@@ -34,10 +45,10 @@ export default function OrderForm(order) {
       );
   }
 
-  let filledQuantity = order.order.quantity * 2.2;
-  let unfilledQuantity = order.order.quantity * 2;
+  let filledQuantity = order.quantity * 2.2;
+  let unfilledQuantity = order.quantity * 2;
 
-  const total = order.order.filling
+  const total = order.filling
     ? `$ ${filledQuantity.toFixed(2)}`
     : `$ ${unfilledQuantity.toFixed(2)}`;
 
@@ -54,123 +65,101 @@ export default function OrderForm(order) {
           name="first_name"
           title="First Name"
           value={
-            order.order.first_name
-              ? order.order.first_name.charAt(0).toUpperCase() +
-                order.order.first_name.slice(1)
+            order.first_name
+              ? order.first_name.charAt(0).toUpperCase() +
+                order.first_name.slice(1)
               : ""
           }
           placeholder="First Name"
-          onChange={(e) =>
-            order.setOrder({ ...order.order, first_name: e.target.value })
-          }
+          onChange={(e) => setOrder({ ...order, first_name: e.target.value })}
         />
         <FormInput
           className="last-name"
           name="last_name"
           title="Last Name"
           value={
-            order.order.last_name
-              ? order.order.last_name.charAt(0).toUpperCase() +
-                order.order.last_name.slice(1)
+            order.last_name
+              ? order.last_name.charAt(0).toUpperCase() +
+                order.last_name.slice(1)
               : ""
           }
           placeholder="Last Name"
-          onChange={(e) =>
-            order.setOrder({ ...order.order, last_name: e.target.value })
-          }
+          onChange={(e) => setOrder({ ...order, last_name: e.target.value })}
         />
         <FormInput
           className="email"
           name="email"
           title="Email Address"
-          value={order.order.email}
+          value={order.email}
           type="email"
           placeholder="Email Address"
-          onChange={(e) =>
-            order.setOrder({ ...order.order, email: e.target.value })
-          }
+          onChange={(e) => setOrder({ ...order, email: e.target.value })}
         />
         <FormInput
           className="cake-flavor"
           name="cake_flavor"
           title="Cake Flavor"
           value={
-            order.order.cake
-              ? order.order.cake.charAt(0).toUpperCase() +
-                order.order.cake.slice(1)
+            order.cake
+              ? order.cake.charAt(0).toUpperCase() + order.cake.slice(1)
               : ""
           }
           placeholder="Cake Flavor"
-          onChange={(e) =>
-            order.setOrder({ ...order.order, cake: e.target.value })
-          }
+          onChange={(e) => setOrder({ ...order, cake: e.target.value })}
         />
         <FormInput
           className="frosting-flavor"
           name="frosting_flavor"
           title="Frosting Flavor"
           value={
-            order.order.frosting
-              ? order.order.frosting.charAt(0).toUpperCase() +
-                order.order.frosting.slice(1)
+            order.frosting
+              ? order.frosting.charAt(0).toUpperCase() + order.frosting.slice(1)
               : ""
           }
           placeholder="Frosting Flavor"
-          onChange={(e) =>
-            order.setOrder({ ...order.order, frosting: e.target.value })
-          }
+          onChange={(e) => setOrder({ ...order, frosting: e.target.value })}
         />
         <FormInput
           className="toppings"
           name="toppings"
           title="Toppings"
           value={
-            order.order.toppings
-              ? order.order.toppings.charAt(0).toUpperCase() +
-                order.order.toppings.slice(1)
+            order.toppings
+              ? order.toppings.charAt(0).toUpperCase() + order.toppings.slice(1)
               : ""
           }
           placeholder="Toppings"
-          onChange={(e) =>
-            order.setOrder({ ...order.order, toppings: e.target.value })
-          }
+          onChange={(e) => setOrder({ ...order, toppings: e.target.value })}
         />
         <FormInput
           className="filling"
           name="filling"
           title="Filling"
           value={
-            order.order.filling
-              ? order.order.filling.charAt(0).toUpperCase() +
-                order.order.filling.slice(1)
+            order.filling
+              ? order.filling.charAt(0).toUpperCase() + order.filling.slice(1)
               : ""
           }
           placeholder="Filling"
-          onChange={(e) =>
-            order.setOrder({ ...order.order, filling: e.target.value })
-          }
+          onChange={(e) => setOrder({ ...order, filling: e.target.value })}
         />
         <FormInput
           className="quantity"
           name="quantity"
           title="Quantity"
-          value={order.order.quantity}
+          value={order.quantity}
           placeholder="Quantity"
-          onChange={(e) =>
-            order.setOrder({ ...order.order, quantity: e.target.value })
-          }
+          onChange={(e) => setOrder({ ...order, quantity: e.target.value })}
         />
         <FormInput
           className="pickup-date"
           name="pickup_date"
           title="Pickup Date"
           type="text"
-          value={order.order.pickup_date}
+          value={order.pickup_date}
           min="10/14/2021"
           placeholder="mm/dd/yyyy"
-          onChange={(e) =>
-            order.setOrder({ ...order.order, pickup_date: e.target.value })
-          }
+          onChange={(e) => setOrder({ ...order, pickup_date: e.target.value })}
         />
       </div>
       <div className="form-button-wrapper">

@@ -9,6 +9,8 @@
 
 .cart-item {
   display: grid;
+  background-color: antiquewhite;
+  border: 2px solid black;
   //   margin-top: 5px;
   //   grid-template-rows: [item-s] 20px [item-e];
   grid-template-columns: [image-s] 40px [image-e name-s] 40px [name-e] 20px [quantity-s] 100px [quantity-e] 30px [plus-s] 20px [plus-e] 20px [minus-s] 20px[minus-e];
