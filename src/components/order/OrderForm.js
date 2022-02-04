@@ -54,7 +54,7 @@ export default function OrderForm() {
 
   return (
     <form className="order-form" onSubmit={sendEmail} ref={form}>
-      <FormTitle className="order-form__title" text="Order Form" />
+      <FormTitle className="order-form__title" text="Custom Order Form" />
       <p>
         Have something in mind? Send your custom request <br />
         with this form and maybe we can work it out!

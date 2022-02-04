@@ -23,6 +23,43 @@ import CookiesAndCream from "./components/gallery/pictures/Cookies&Cream.jpeg";
 
 export default function App() {
   const [cart, updateCart] = useState([]);
+  const onAdd = (product) => {
+    const inCart = cart.find((x) => x.key === product.key);
+    if (inCart) {
+      updateCart(
+        cart.map((x) =>
+          x.key === product.key
+            ? { ...inCart, quantity: inCart.quantity + 6 }
+            : x
+        )
+      );
+    } else {
+      console.log(product);
+      updateCart([...cart, { ...product }]);
+    }
+  };
+
+  const onSubtract = (product) => {
+    const inCart = cart.find((x) => x.key === product.key);
+    if (inCart.quantity === 6) {
+      updateCart(cart.filter((x) => x.key !== product.key));
+    } else {
+      updateCart(
+        cart.map((x) =>
+          x.key === product.key
+            ? { ...inCart, quantity: inCart.quantity - 6 }
+            : x
+        )
+      );
+    }
+  };
+
+  const onRemove = (product) => {
+    const inCart = cart.find((x) => x.key === product.key);
+    if (inCart) {
+      updateCart(cart.filter((x) => x.key !== product.key));
+    }
+  };
 
   const products = [
     {
@@ -138,17 +175,17 @@ export default function App() {
           <Route path="/customorder" element={<OrderForm />} />
           <Route
             path="/gallery"
-            element={
-              <TileGallery
-                cart={cart}
-                products={products}
-                updateCart={updateCart}
-              />
-            }
+            element={<TileGallery products={products} onAdd={onAdd} />}
           />
         </Routes>
       </Router>
-      <ShoppingCart cart={cart} products={products} updateCart={updateCart} />
+      <ShoppingCart
+        cart={cart}
+        products={products}
+        onAdd={onAdd}
+        onRemove={onRemove}
+        onSubtract={onSubtract}
+      />
     </div>
   );
 }

@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import GalleryItem from "./GalleryItem";
+import BlueberryLemon from "./pictures/BlueberryLemon.jpeg";
 
-export default function TileGallery(order) {
+export default function TileGallery({ products, onAdd }) {
   const [showcase, updateShowcase] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    cake: "",
-    frosting: "",
-    toppings: "",
-    filling: "",
+    src: BlueberryLemon,
+    cake: "lemon",
+    frosting: "blueberry",
+    toppings: "blueberries",
+    filling: "blueberry jam",
     quantity: 6,
-    src: "",
+    key: 0,
   });
+
   return (
     <div className="tile-gallery">
       <div className="showcase">
@@ -31,13 +30,14 @@ export default function TileGallery(order) {
               ? ` and  topped with ${showcase.toppings}.`
               : "."}
           </p>
-          <Link to="/customorder">
-            <button>Order Now!</button>
-          </Link>
+
+          <p> {showcase.filling ? "$2.20" : "$2.00"} each</p>
+
+          <button onClick={() => onAdd(showcase)}>Add to Cart</button>
         </div>
       </div>
       <div className="tiles">
-        {order.products.map((product) => (
+        {products.map((product) => (
           <GalleryItem
             key={product.key}
             className={`${product.src.slice(14, -14)}-product tile`}

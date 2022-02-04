@@ -1,11 +1,11 @@
 import React from "react";
 import CartItem from "./CartItem";
-export default function ShoppingCart({ cart, updateCart }) {
+export default function ShoppingCart({ cart, onAdd }) {
   const cartStatus = cart.length > 0 ? "cart-visible" : "cart-hidden";
 
   return (
-    <div className="shopping-cart-wrapper">
-      <h1 className={cartStatus}>ShoppingCart</h1>
+    <div className={cartStatus}>
+      <h1 className="cart-header">ShoppingCart</h1>
       <div className="cart-items">
         {cart.map((item) => (
           <CartItem
@@ -14,7 +14,7 @@ export default function ShoppingCart({ cart, updateCart }) {
             title={item.src.slice(14, -14)}
             quantity={item.quantity}
             alt="It'll look great. I Promise ;)"
-            updateCart={updateCart}
+            onAdd={onAdd}
             filling={item.filling}
           />
         ))}
