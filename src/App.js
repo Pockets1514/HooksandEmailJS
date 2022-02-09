@@ -23,6 +23,7 @@ import CookiesAndCream from "./components/gallery/pictures/Cookies&Cream.jpeg";
 
 export default function App() {
   const [cart, updateCart] = useState([]);
+
   const onAdd = (product) => {
     const inCart = cart.find((x) => x.key === product.key);
     if (inCart) {
