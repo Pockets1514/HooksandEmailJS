@@ -5,7 +5,7 @@ import Header from "./components/header/Header";
 import NavBar from "./components/navbar/NavBar";
 import ShoppingCart from "./components/cart/ShoppingCart";
 import Home from "./components/home/Home";
-import OrderForm from "./components/order/OrderForm";
+import OrderForm from "./components/contact/ContactForm";
 import TileGallery from "./components/gallery/TileGallery";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 

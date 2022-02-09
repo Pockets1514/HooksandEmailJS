@@ -1,4 +1,4 @@
-.order-form {
+.contact-form {
   display: flex;
   flex-direction: column;
   background-color: rgb(252, 247, 240, 0.75);
@@ -55,14 +55,14 @@
   }
 }
 
-#order-form-image {
+#contact-form-image {
   margin-top: 20px;
   height: 200px;
   width: 400px;
 }
 
 @media (max-width: $breakpoint) {
-  .order-form {
+  .contact-form {
     position: fixed;
     top: 110px;
   }
@@ -86,13 +86,6 @@
     margin-top: 25px;
     display: flex;
     justify-content: space-around;
-  }
-
-  #order-form-image {
-    margin-top: 24px;
-    height: 100px;
-    width: 200px;
-    border-radius: 14px;
   }
 
   .form-button {
