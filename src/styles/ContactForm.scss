@@ -55,16 +55,39 @@
   }
 }
 
-#contact-form-image {
-  margin-top: 20px;
-  height: 200px;
-  width: 400px;
+.total {
+  margin: 20px 0px 0px 5px;
+  display: flex;
+
+  &__title {
+    text-align: left;
+    margin-top: 10px;
+    height: 20px;
+    width: 50%;
+    color: $color-brick;
+    font-weight: 700;
+    font-size: 25px;
+  }
+
+  &__price {
+    text-align: left;
+    margin-top: 10px;
+    height: 20px;
+    width: 50%;
+    color: $color-brick;
+    font-weight: 500;
+    font-size: 28px;
+  }
 }
 
 @media (max-width: $breakpoint) {
   .contact-form {
     position: fixed;
     top: 110px;
+
+    p {
+      width: 90%;
+    }
   }
 
   .form-title {
@@ -75,9 +98,17 @@
     margin-bottom: -15px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
+
     &__label {
       visibility: hidden;
+    }
+
+    &__input {
+      height: 40px;
+      width: 90%;
+      border-radius: 15px;
     }
   }
 
@@ -89,13 +120,37 @@
   }
 
   .form-button {
-    margin: 5px;
+    margin: -15px 5px 10px 5px;
     &__button {
       height: 60px;
       width: 150px;
       font-size: medium;
       padding: 3px;
       border-radius: 50px;
+    }
+  }
+
+  .total {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+
+    &__title {
+      margin-top: 10px;
+      height: 20px;
+      color: $color-brick;
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    &__price {
+      margin-top: 10px;
+      height: 20px;
+      color: $color-brick;
+      font-weight: 500;
+      font-size: 28px;
     }
   }
 }

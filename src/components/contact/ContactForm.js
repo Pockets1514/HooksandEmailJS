@@ -56,8 +56,8 @@ export default function ContactForm() {
     <form className="contact-form" onSubmit={sendEmail} ref={form}>
       <FormTitle className="contact-form__title" text="Contact Form" />
       <p>
-        Have something else in mind? Send your custom request <br />
-        with this form and maybe we can work it out!
+        Have something else in mind? <br /> Send your custom request with this
+        form and maybe we can work it out!
       </p>
       <div className="contact-form__input-wrapper">
         <FormInput
@@ -171,6 +171,10 @@ export default function ContactForm() {
           }
         />
       </div>
+      <div className="total">
+        <p className="total__title">Estimated Total</p>
+        <p className="total__price">{total}</p>
+      </div>
       <div className="form-button-wrapper">
         <FormButton
           className="contact-form__submit-message "
@@ -179,10 +183,6 @@ export default function ContactForm() {
           type="Submit"
           largeButton
         />
-      </div>
-      <div className="total-wrapper">
-        <p className="total-title">Estimated Total</p>
-        <p className="total-price">{total}</p>
       </div>
     </form>
   );
