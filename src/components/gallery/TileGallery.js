@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import GalleryItem from "./GalleryItem";
 import BlueberryLemon from "./pictures/BlueberryLemon.jpeg";
 
-export default function TileGallery({ products, onAdd }) {
+export default function TileGallery({ products, onAdd, cart }) {
   const [showcase, updateShowcase] = useState({
     src: BlueberryLemon,
     cake: "lemon",

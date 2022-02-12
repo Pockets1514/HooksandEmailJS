@@ -4,15 +4,26 @@ export default function CartItem({
   onAdd,
   onRemove,
   onSubtract,
-  key,
+  cartKey,
+  cart,
   src,
   title,
   alt,
   quantity,
   filling,
+  products,
 }) {
+  const currentItem = {
+    key: cartKey,
+    src: src,
+    title: title,
+    quantity: quantity,
+    products: products,
+    filling: filling,
+  };
+  console.log(currentItem);
   return (
-    <div className="cart-item" key={key}>
+    <div className="cart-item" products={products} key={cartKey} cart={cart}>
       <img className="cart-item__image" src={src} alt={alt}></img>
       <h1 className="cart-item__title">{title}</h1>
       <p className="cart-item__quantity"> {quantity}</p>
@@ -21,19 +32,19 @@ export default function CartItem({
       }`}</p>
       <button
         className="cart-item__button cart-item__plus"
-        onClick={() => onAdd}
+        onClick={(cart) => onAdd(currentItem)}
       >
         +
       </button>
       <button
         className="cart-item__button cart-item__minus"
-        onClick={() => onSubtract}
+        onClick={() => onSubtract(currentItem)}
       >
         -
       </button>
       <button
         className="cart-item__button cart-item__remove"
-        onClick={() => onRemove}
+        onClick={() => onRemove(currentItem)}
       >
         x
       </button>

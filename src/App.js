@@ -25,16 +25,20 @@ export default function App() {
   const [cart, updateCart] = useState([]);
 
   const onAdd = (product) => {
+    console.log({ product }, { cart });
     const inCart = cart.find((x) => x.key === product.key);
+
     if (inCart) {
+      console.log("if activated");
       updateCart(
         cart.map((x) =>
-          x.key === product.key
+          x.key === inCart.key
             ? { ...inCart, quantity: inCart.quantity + 6 }
             : x
         )
       );
     } else {
+      console.log("else activated");
       console.log(product);
       updateCart([...cart, { ...product }]);
     }

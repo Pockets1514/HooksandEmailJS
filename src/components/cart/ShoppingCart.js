@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import CartItem from "./CartItem";
 
-export default function ShoppingCart({ cart, onAdd }) {
+export default function ShoppingCart({
+  cart,
+  products,
+  onAdd,
+  onSubtract,
+  onRemove,
+}) {
   const [minMaxStatus, updateMinMax] = useState({
     cartSize: "min",
   });
@@ -16,6 +22,7 @@ export default function ShoppingCart({ cart, onAdd }) {
   };
   return (
     <div
+      cart={cart}
       className={`${cartVisibility} cart-${minMaxStatus.cartSize} cart-wrapper`}
     >
       <div className="cart-header">
@@ -40,13 +47,17 @@ export default function ShoppingCart({ cart, onAdd }) {
       <div className={`cart-items cart-items-${minMaxStatus.cartSize}`}>
         {cart.map((item) => (
           <CartItem
-            key={item.key}
+            cartKey={item.key}
+            cart={cart}
             src={item.src}
             title={item.src.slice(14, -14)}
             quantity={item.quantity}
             alt="It'll look great. I Promise ;)"
             onAdd={onAdd}
+            onSubtract={onSubtract}
+            onRemove={onRemove}
             filling={item.filling}
+            products={products}
           />
         ))}
       </div>
