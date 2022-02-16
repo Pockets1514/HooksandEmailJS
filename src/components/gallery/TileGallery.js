@@ -31,7 +31,7 @@ export default function TileGallery({ products, onAdd, cart }) {
               : "."}
           </p>
 
-          <p> {showcase.filling ? "$2.20" : "$2.00"} each</p>
+          <p> {showcase.filling ? "$2.21" : "$2.00"} each</p>
 
           <button onClick={() => onAdd(showcase)}>Add to Cart</button>
         </div>

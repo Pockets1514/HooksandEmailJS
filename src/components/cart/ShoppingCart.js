@@ -20,6 +20,14 @@ export default function ShoppingCart({
   const Maximize = () => {
     updateMinMax({ cartSize: "max" });
   };
+  const totalPrice = cart.reduce(
+    (total, item) =>
+      item.filling ? item.quantity * 2.21 + total : item.quantity * 2 + total,
+    0
+  );
+
+  const cakeQty = cart.reduce((total, item) => item.quantity + total, 0);
+
   return (
     <div
       cart={cart}
@@ -61,10 +69,10 @@ export default function ShoppingCart({
           />
         ))}
       </div>
-      {/* <div className="cart-summary">
+      <div className="cart-summary">
         <h2>Cupcakes Ordered {cakeQty}</h2>
-        <h2>Total ${totalPrice}</h2>
-      </div> */}
+        <h2>Total ${totalPrice.toFixed(2)}</h2>
+      </div>
     </div>
   );
 }

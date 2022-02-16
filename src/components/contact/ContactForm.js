@@ -28,9 +28,17 @@ export default function ContactForm() {
       .then(
         (result) => {
           console.log(result.text);
-          alert(
-            "Your request is on it's way to my inbox, but I am only one woman. Please allow up to one week for a response."
-          );
+          setMessage({
+            first_name: "",
+            last_name: "",
+            email: "",
+            cake: "",
+            frosting: "",
+            toppings: "",
+            filling: "",
+            quantity: 6,
+            pickup_date: "",
+          });
         },
         (error) => {
           console.log(error.text);
@@ -45,7 +53,7 @@ export default function ContactForm() {
       );
   }
 
-  let filledQuantity = message.quantity * 2.2;
+  let filledQuantity = message.quantity * 2.21;
   let unfilledQuantity = message.quantity * 2;
 
   const total = message.filling
