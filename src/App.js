@@ -7,7 +7,7 @@ import ShoppingCart from "./components/cart/ShoppingCart";
 import Home from "./components/home/Home";
 import OrderForm from "./components/contact/ContactForm";
 import TileGallery from "./components/gallery/TileGallery";
-// import Payments from "./components/payments/Payments";
+import OrderSummary from "./components/order_summary/OrderSummary";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import BlueberryLemon from "./components/gallery/pictures/BlueberryLemon.jpeg";
@@ -26,11 +26,9 @@ export default function App() {
   const [cart, updateCart] = useState([]);
 
   const onAdd = (product) => {
-    console.log({ product }, { cart });
     const inCart = cart.find((x) => x.key === product.key);
 
     if (inCart) {
-      console.log("if activated");
       updateCart(
         cart.map((x) =>
           x.key === inCart.key
@@ -39,8 +37,6 @@ export default function App() {
         )
       );
     } else {
-      console.log("else activated");
-      console.log(product);
       updateCart([...cart, { ...product }]);
     }
   };
@@ -171,6 +167,12 @@ export default function App() {
     },
   ];
 
+  const totalPrice = cart.reduce(
+    (total, item) =>
+      item.filling ? item.quantity * 2.21 + total : item.quantity * 2 + total,
+    0
+  );
+
   return (
     <div className="App">
       <Header />
@@ -183,6 +185,20 @@ export default function App() {
             path="/gallery"
             element={<TileGallery products={products} onAdd={onAdd} />}
           />
+          <Route
+            path="/order-summary"
+            element={
+              <OrderSummary
+                cart={cart}
+                products={products}
+                onAdd={onAdd}
+                onRemove={onRemove}
+                onSubtract={onSubtract}
+                updateCart={updateCart}
+                totalPrice={totalPrice}
+              />
+            }
+          />
         </Routes>
       </Router>
       <ShoppingCart
@@ -191,6 +207,8 @@ export default function App() {
         onAdd={onAdd}
         onRemove={onRemove}
         onSubtract={onSubtract}
+        updateCart={updateCart}
+        totalPrice={totalPrice}
       />
     </div>
   );

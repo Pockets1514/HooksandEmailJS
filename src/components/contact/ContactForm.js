@@ -46,10 +46,6 @@ export default function ContactForm() {
             "Oh no :( There was an error with your request. Please try again.  If this continues to occur email bohotogomaine@gmail.com"
           );
         }
-        // dispatch({
-        //   type: "RESET_FORM",
-        //   payload: null,
-        // })
       );
   }
 

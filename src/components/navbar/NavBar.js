@@ -14,6 +14,9 @@ class NavBar extends Component {
           <Link className="navlink" to="/gallery">
             Gallery
           </Link>
+          <Link className="navlink review-order" to="/order-summary">
+            Review Order
+          </Link>
         </div>
       </div>
     );

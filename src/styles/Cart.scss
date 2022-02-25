@@ -14,8 +14,8 @@
 
 .cart-min {
   position: fixed;
-  bottom: 0px;
-  height: 50px;
+  bottom: -100px;
+  height: auto;
 }
 
 .cart-max {
@@ -76,6 +76,7 @@
 
 .cart-items-min {
   height: 0px;
+
   visibility: hidden;
 }
 

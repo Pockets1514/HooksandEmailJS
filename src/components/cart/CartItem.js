@@ -21,7 +21,7 @@ export default function CartItem({
     products: products,
     filling: filling,
   };
-  console.log(currentItem);
+
   return (
     <div className="cart-item" products={products} key={cartKey} cart={cart}>
       <img className="cart-item__image" src={src} alt={alt}></img>

@@ -7,6 +7,8 @@ export default function ShoppingCart({
   onAdd,
   onSubtract,
   onRemove,
+  updateCart,
+  totalPrice,
 }) {
   const [minMaxStatus, updateMinMax] = useState({
     cartSize: "min",
@@ -20,11 +22,6 @@ export default function ShoppingCart({
   const Maximize = () => {
     updateMinMax({ cartSize: "max" });
   };
-  const totalPrice = cart.reduce(
-    (total, item) =>
-      item.filling ? item.quantity * 2.21 + total : item.quantity * 2 + total,
-    0
-  );
 
   const cakeQty = cart.reduce((total, item) => item.quantity + total, 0);
 
