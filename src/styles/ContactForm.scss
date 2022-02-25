@@ -83,7 +83,7 @@
 @media (max-width: $breakpoint) {
   .contact-form {
     position: fixed;
-    top: 110px;
+    top: 90px;
 
     p {
       width: 90%;
@@ -106,7 +106,7 @@
     }
 
     &__input {
-      height: 40px;
+      height: 35px;
       width: 90%;
       border-radius: 15px;
     }
@@ -138,16 +138,24 @@
     align-items: flex-end;
 
     &__title {
+      display: flex;
       margin-top: 10px;
+      margin-right: 5px;
+      justify-content: flex-end;
       height: 20px;
+      width: 45%;
       color: $color-brick;
       font-weight: 700;
       font-size: 20px;
     }
 
     &__price {
+      display: flex;
+      justify-content: flex-start;
       margin-top: 10px;
+      margin-left: 5px;
       height: 20px;
+      width: 45%;
       color: $color-brick;
       font-weight: 500;
       font-size: 28px;

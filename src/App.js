@@ -7,6 +7,7 @@ import ShoppingCart from "./components/cart/ShoppingCart";
 import Home from "./components/home/Home";
 import OrderForm from "./components/contact/ContactForm";
 import TileGallery from "./components/gallery/TileGallery";
+// import Payments from "./components/payments/Payments";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import BlueberryLemon from "./components/gallery/pictures/BlueberryLemon.jpeg";

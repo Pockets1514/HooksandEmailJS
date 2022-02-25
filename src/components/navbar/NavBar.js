@@ -9,7 +9,7 @@ class NavBar extends Component {
             Home
           </Link>
           <Link className="navlink" to="/customorder">
-            OrderForm
+            Contact Form
           </Link>
           <Link className="navlink" to="/gallery">
             Gallery
