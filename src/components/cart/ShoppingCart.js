@@ -7,7 +7,6 @@ export default function ShoppingCart({
   onAdd,
   onSubtract,
   onRemove,
-  updateCart,
   totalPrice,
 }) {
   const [minMaxStatus, updateMinMax] = useState({

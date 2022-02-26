@@ -207,7 +207,6 @@ export default function App() {
         onAdd={onAdd}
         onRemove={onRemove}
         onSubtract={onSubtract}
-        updateCart={updateCart}
         totalPrice={totalPrice}
       />
     </div>

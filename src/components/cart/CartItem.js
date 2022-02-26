@@ -31,18 +31,21 @@ export default function CartItem({
         filling ? (quantity * 2.21).toFixed(2) : (quantity * 2).toFixed(2)
       }`}</p>
       <button
+        type="button"
         className="cart-item__button cart-item__plus"
         onClick={(cart) => onAdd(currentItem)}
       >
         +
       </button>
       <button
+        type="button"
         className="cart-item__button cart-item__minus"
         onClick={() => onSubtract(currentItem)}
       >
         -
       </button>
       <button
+        type="button"
         className="cart-item__button cart-item__remove"
         onClick={() => onRemove(currentItem)}
       >

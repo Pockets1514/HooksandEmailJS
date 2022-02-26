@@ -130,6 +130,27 @@ export default function OrderSummary({
           type="text"
         />
       </div>
+      <div className="order-summary__totals">
+        <span className="order-summary__totals__subtotal-label">Subtotal </span>
+        <p className="order-summary__totals__subtotal-amount">
+          $ {totalPrice.toFixed(2)}
+        </p>
+        <span className="order-summary__totals__tax-label">Tax (8%) </span>
+        <p className="order-summary__totals__tax-amount">
+          $ {(totalPrice * 0.08).toFixed(2)}
+        </p>
+        <span className="order-summary__totals__total-label">Total </span>
+        <p className="order-summary__totals__total-amount">
+          $ {(totalPrice * 1.08).toFixed(2)}
+        </p>
+      </div>
+      <FormButton
+        className="order-summary__submit-order"
+        name="submit"
+        title="Submit Order"
+        type="Submit"
+        largeButton
+      />
       <div className="order-summary__items">
         {cart.map((item) => (
           <CartItem
@@ -146,21 +167,6 @@ export default function OrderSummary({
           />
         ))}
       </div>
-      <div className="order-summary__totals">
-        <span>Subtotal </span>
-        <p>$ {totalPrice.toFixed(2)}</p>
-        <span>Tax (8%) </span>
-        <p>$ {(totalPrice * 0.08).toFixed(2)}</p>
-        <span>Total </span>
-        <p>$ {(totalPrice * 1.08).toFixed(2)}</p>
-      </div>
-      <FormButton
-        className="order-summary__submit-order"
-        name="submit"
-        title="Submit Order"
-        type="Submit"
-        largeButton
-      />
     </form>
   );
 }

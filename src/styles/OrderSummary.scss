@@ -1,7 +1,7 @@
 .order-summary {
   display: grid;
-  grid-template-rows: 20px [form-s] 200px [form-e] 10px [items-s] auto [items-e] 30px [totals-s]175px [totals-e] 30px [button-s] 25px [button-e]20px;
-  grid-template-columns: [form-s] 100%[form-e];
+  grid-template-rows: 5% [subtotals-s] 30% [subtotals-e] 0% [button-s] 10% [button-e] 5% [items-s] 45% [items-s] 5%;
+  grid-template-columns: [contact-s] 60%[contact-e] 10% [subtotals-s]30% [subtotals-e];
   height: 65vh;
   width: 80vw;
   background-color: rgb(252, 247, 240, 0.75);
@@ -9,40 +9,232 @@
   border-radius: 10px;
 
   &__customer-info {
+    // background-color: blue;
     display: flex;
     flex-direction: column;
     align-items: center;
-    grid-row: form-s/form-e;
-    grid-column: form-s/form-e;
+    justify-content: space-around;
+    grid-row: subtotals-s/button-e;
+    grid-column: contact-s/contact-e;
   }
 
   &__items {
+    // background-color: yellow;
     display: flex;
     flex-direction: column;
     align-items: center;
     scroll-behavior: smooth;
     overflow-y: scroll;
     grid-row: items-s/items-e;
-    grid-column: form-s/form-e;
+    grid-column: contact-s/subtotals-e;
   }
 
   &__submit-order {
+    // background-color: green;
     grid-row: button-s/button-e;
-    grid-column: form-s/form-e;
-    height: 50px;
+    grid-column: subtotals-s/subtotals-e;
+
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-end;
     button {
+      font-size: 1.5rem;
       height: 40px;
+      width: 90%;
     }
   }
 
   &__totals {
-    grid-row: totals-s/totals-e;
-    grid-column: form-s/form-e;
+    // background-color: crimson;
+    font-size: 1.5rem;
+    grid-row: subtotals-s/subtotals-e;
+    grid-column: subtotals-s/subtotals-e;
+    display: grid;
+    grid-template-rows: 5%[subtotal-s]30% [subtotal-e]0% [tax-s]30% [tax-e]0% [total-s]30% [total-e] 5%;
+    grid-template-columns: 5%[label-s] 40% [label-e]5% [amount-s] 40% [amount-e]10%;
+    align-items: center;
     span {
       font-weight: bold;
+      grid-column: label-s/label-e;
+    }
+
+    p {
+      grid-column: amount-s/amount-e;
+    }
+
+    &__subtotal-label {
+      grid-row: subtotal-s/subtotal-e;
+    }
+    &__tax-label {
+      grid-row: tax-s/tax-e;
+    }
+    &__total-label {
+      grid-row: total-s/total-e;
+    }
+
+    &__subtotal-amount {
+      grid-row: subtotal-s/subtotal-e;
+    }
+    &__tax-amount {
+      grid-row: tax-s/tax-e;
+    }
+    &__total-amount {
+      grid-row: total-s/total-e;
+    }
+  }
+
+  &__input {
+    display: grid;
+    grid-template-rows: 1.5%[first-s]22% [first-e]3% [last-s]22% [last-e]3% [email-s]22% [email-e]3% [date-s]22% [date-e] 1.5%;
+    grid-template-columns: 5%[label-s] 40% [label-e]10% [input-s] 40% [input-e]5%;
+    .form-field__input {
+      grid-column: input-s/input-e;
+      font-size: 1.5rem;
+      height: 40px;
+      border-radius: 20px;
+    }
+    .form-field__label {
+      grid-column: label-s/label-e;
+      font-size: 1.5rem;
+      height: 40px;
+      width: 90%;
+      border-radius: 20px;
+    }
+  }
+
+  .hidden-input {
+    visibility: hidden;
+    z-index: -10;
+  }
+}
+
+@media (max-width: $breakpoint) {
+  .order-summary {
+    display: grid;
+    grid-template-rows: [info-s] 30% [info-e] 1% [subtotal-s] 15% [subtotal-e] 1% [submit-s] 7% [submit-e] 1% [ items-s] 40% [items-e];
+    grid-template-columns: [summary-s] 100%[summary-e];
+    height: 85vh;
+    width: 80vw;
+    background-color: rgb(252, 247, 240, 0.75);
+
+    border-radius: 10px;
+
+    &__customer-info {
+      // background-color: blue;
+      grid-row: info-s/info-e;
+      grid-column: summary-s/summary-e;
+      display: grid;
+      grid-template-rows: 5%[first-s] 20% [first-e] 3% [last-s] 20% [last-e] 3% [email-s] 20% [email-e] 3% [date-s] 20% [date-e] 6%;
+      grid-template-columns: [info-s] 100% [info-e];
+    }
+
+    &__items {
+      // background-color: yellow;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      scroll-behavior: smooth;
+      overflow-y: scroll;
+      grid-row: items-s/items-e;
+      grid-column: summary-s/summary-e;
+    }
+
+    &__submit-order {
+      // background-color: green;
+      grid-row: submit-s/submit-e;
+      grid-column: summary-s/summary-e;
+
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      button {
+        font-size: 1.5rem;
+        height: 40px;
+        width: 90%;
+      }
+    }
+
+    &__totals {
+      // background-color: crimson;
+      font-size: 1.5rem;
+      grid-row: subtotal-s/subtotal-e;
+      grid-column: summary-s/summary-e;
+      display: grid;
+      grid-template-rows: 5%[subtotal-s]30% [subtotal-e]0% [tax-s]30% [tax-e]0% [total-s]30% [total-e] 5%;
+      grid-template-columns: 5%[label-s] 40% [label-e]5% [amount-s] 40% [amount-e]10%;
+      align-items: center;
+      span {
+        font-weight: bold;
+        grid-column: label-s/label-e;
+      }
+
+      p {
+        grid-column: amount-s/amount-e;
+      }
+
+      &__subtotal-label {
+        grid-row: subtotal-s/subtotal-e;
+      }
+      &__tax-label {
+        grid-row: tax-s/tax-e;
+      }
+      &__total-label {
+        grid-row: total-s/total-e;
+      }
+
+      &__subtotal-amount {
+        grid-row: subtotal-s/subtotal-e;
+      }
+      &__tax-amount {
+        grid-row: tax-s/tax-e;
+      }
+      &__total-amount {
+        grid-row: total-s/total-e;
+      }
+    }
+
+    &__input {
+      grid-column: info-s/info-e;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      margin: -15px;
+
+      .form-field__input {
+        grid-column: input-s/input-e;
+        font-size: 1.5rem;
+        height: 40px;
+        width: 90%;
+        border-radius: 20px;
+      }
+      .form-field__label {
+        visibility: hidden;
+        z-index: -10;
+        grid-column: label-s/label-e;
+        font-size: 1.5rem;
+        height: 0px;
+        width: 90%;
+        border-radius: 20px;
+      }
+    }
+
+    .first-name {
+      grid-row: first-s/first-e;
+    }
+    .last-name {
+      grid-row: last-s/last-e;
+    }
+    .email {
+      grid-row: email-s/email-e;
+    }
+    .pickup-date {
+      grid-row: date-s/date-e;
+    }
+
+    .hidden-input {
+      visibility: hidden;
+      z-index: -10;
     }
   }
 }
