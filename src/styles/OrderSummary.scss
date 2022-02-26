@@ -2,8 +2,8 @@
   display: grid;
   grid-template-rows: 20px [form-s] 200px [form-e] 10px [items-s] auto [items-e] 30px [totals-s]175px [totals-e] 30px [button-s] 25px [button-e]20px;
   grid-template-columns: [form-s] 100%[form-e];
-  height: 700px;
-  width: 75%;
+  height: 65vh;
+  width: 80vw;
   background-color: rgb(252, 247, 240, 0.75);
   padding: 20px;
   border-radius: 10px;
