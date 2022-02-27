@@ -42,5 +42,11 @@
       visibility: visible;
       align-self: center;
     }
+    #toggle-visible {
+      transform: rotate(90deg);
+    }
+    #toggle-hidden {
+      transform: rotate(0deg);
+    }
   }
 }
