@@ -28,33 +28,36 @@
   .navbar {
     background-color: $color-lightolive;
     margin-top: 8px;
-    width: 90vw;
+
     z-index: 10;
-  }
-
-  .hidden {
-    visibility: hidden;
-    height: 0px;
-  }
-
-  .visible {
-    visibility: visible;
-    height: 150px;
-    width: 90vw;
-    padding: 5px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
 
     &__links {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
     }
+  }
 
-    .navlink {
-      font-size: 35px;
-      color: $color-darkgreen;
-    }
+  .navlink {
+    font-size: 35px;
+    margin-bottom: 20px;
+    color: $color-darkgreen;
+  }
+  .hidden {
+    visibility: hidden;
+    height: 0px;
+    position: fixed;
+    top: -300px;
+  }
+
+  .visible {
+    visibility: visible;
+    position: fixed;
+    top: 80px;
+    height: 240px;
+    padding: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 }

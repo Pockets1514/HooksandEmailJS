@@ -46,10 +46,11 @@
       height: 80vw;
       width: 80vw;
     }
-
-    p {
-      width: 80vw;
-      font-size: calc((80vw) / 20);
+    .greeting-wrapper {
+      span {
+        width: 80vw;
+        font-size: calc((80vw) / 20);
+      }
     }
   }
 }

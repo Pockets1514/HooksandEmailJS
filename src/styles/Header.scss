@@ -26,6 +26,8 @@
 
 @media (max-width: $breakpoint) {
   .header {
+    height: 70px;
+    background-color: rgba(85, 132, 85, 1);
     margin: -20px;
     padding: 17px 10px 10px 10px;
     width: 90vw;

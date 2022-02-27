@@ -110,13 +110,14 @@
 
 @media (max-width: $breakpoint) {
   .order-summary {
+    margin: 10px 0px 0px 0px;
     display: grid;
     grid-template-rows: [info-s] 30% [info-e] 1% [subtotal-s] 15% [subtotal-e] 1% [submit-s] 7% [submit-e] 1% [ items-s] 40% [items-e];
     grid-template-columns: [summary-s] 100%[summary-e];
     height: 85vh;
     width: 80vw;
     background-color: rgb(252, 247, 240, 0.75);
-
+    z-index: 5;
     border-radius: 10px;
 
     &__customer-info {

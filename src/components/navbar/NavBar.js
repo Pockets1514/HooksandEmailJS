@@ -4,7 +4,7 @@ class NavBar extends Component {
   render() {
     return (
       <div className="navbar hidden" id="navbar">
-        <div className="navbar visible__links">
+        <div className="navbar__links">
           <Link className="navlink" to="/home">
             Home
           </Link>
