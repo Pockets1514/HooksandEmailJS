@@ -22,7 +22,11 @@ export class FormInput extends Component {
       <div className={`${className} form-field`}>
         <label className="form-field__label">{title}</label>
         <input
-          className="form-field__input form-data"
+          className={
+            type === "date"
+              ? "form-field__input form-data date-picker__input"
+              : "form-field__input form-data"
+          }
           name={name}
           value={value}
           type={type}

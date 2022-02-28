@@ -105,7 +105,7 @@ export default function OrderSummary({
           }
         />
         <FormInput
-          className="pickup-date order-summary__input"
+          className="pickup-date order-summary__input date-picker"
           name="pickup_date"
           title="Pickup Date"
           value={galleryOrder.pickup_date}
@@ -164,6 +164,7 @@ export default function OrderSummary({
             onSubtract={onSubtract}
             onRemove={onRemove}
             products={products}
+            filling={item.filling}
           />
         ))}
       </div>

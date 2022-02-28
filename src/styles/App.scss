@@ -8,3 +8,11 @@
   align-items: center;
   text-align: center;
 }
+
+.date-picker {
+  &__input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    min-height: 1.2em;
+  }
+}

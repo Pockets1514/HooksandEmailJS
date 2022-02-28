@@ -163,7 +163,7 @@ export default function ContactForm() {
           onChange={(e) => setMessage({ ...message, quantity: e.target.value })}
         />
         <FormInput
-          className="pickup-date"
+          className="pickup-date date-picker"
           name="pickup_date"
           title="Pickup Date"
           type="date"
