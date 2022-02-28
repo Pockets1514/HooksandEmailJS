@@ -1,6 +1,6 @@
 .navbar {
   height: 40px;
-  width: 90vw;
+  width: 95vw;
   border-radius: 0px 0px 10px 10px;
   margin-bottom: 10px;
   background-color: rgba(35, 95, 35, 0.623);
@@ -28,7 +28,8 @@
   .navbar {
     background-color: $color-lightolive;
     margin-top: 8px;
-
+    width: 90vw;
+    transition-duration: 2s;
     z-index: 10;
 
     &__links {
@@ -45,7 +46,7 @@
   }
   .hidden {
     visibility: hidden;
-    height: 0px;
+    height: 240px;
     position: fixed;
     top: -300px;
   }

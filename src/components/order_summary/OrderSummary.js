@@ -110,7 +110,7 @@ export default function OrderSummary({
           title="Pickup Date"
           value={galleryOrder.pickup_date}
           type="date"
-          placeholder="Pickup Date"
+          placeholder="mm/dd/yyyy"
           onChange={(e) =>
             updateOrder({ ...galleryOrder, pickup_date: e.target.value })
           }

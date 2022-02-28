@@ -15,7 +15,7 @@ class Header extends Component {
     }
 
     return (
-      <div className="header">
+      <div className=" header">
         <p>The Boho Bakery of Maine</p>
         <div
           className="hamburger-wrapper"

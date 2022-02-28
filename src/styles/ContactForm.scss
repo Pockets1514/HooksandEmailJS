@@ -1,14 +1,42 @@
 .contact-form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(252, 247, 240, 0.75);
   padding: 5px;
   border-radius: 10px;
 
   &__input-wrapper {
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+  }
+
+  &__title {
+    margin: 0px;
+    height: 30px;
+    color: $color-brown;
+    font-weight: bold;
+  }
+
+  .form-button {
+    margin: -15px 0px 15px 0px;
+
+    &__Submit {
+      height: 50px;
+      width: 200px;
+      border-radius: 50px;
+    }
+  }
+
+  &__subtitle {
+    color: $color-brown;
+    font-weight: 550;
+    height: auto;
+    width: 90%;
+    margin-bottom: 10px;
   }
 }
 
@@ -42,28 +70,23 @@
 
 .form-button-wrapper {
   width: 100%;
-  margin-top: 10px;
   display: flex;
   justify-content: space-around;
 }
 
-.form-button {
-  margin: 5px;
-  &__button {
-    padding: 3px;
-    border-radius: 50px;
-  }
-}
-
 .total {
-  margin: 20px 0px 0px 5px;
   display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: 50px;
 
   &__title {
     text-align: left;
-    margin-top: 10px;
-    height: 20px;
-    width: 50%;
+
+    height: 40px;
+    width: 200px;
     color: $color-brick;
     font-weight: 700;
     font-size: 25px;
@@ -71,9 +94,9 @@
 
   &__price {
     text-align: left;
-    margin-top: 10px;
+
     height: 20px;
-    width: 50%;
+    width: 100px;
     color: $color-brick;
     font-weight: 500;
     font-size: 28px;
@@ -83,7 +106,7 @@
 @media (max-width: $breakpoint) {
   .contact-form {
     display: flex;
-    height: 800px;
+    height: 725px;
     width: 90%;
     flex-direction: column;
     align-items: center;
@@ -91,18 +114,9 @@
     top: 90px;
     overflow-y: scroll;
 
-    p {
-      width: 90%;
-      margin-bottom: -10px;
-    }
-
     &__input-wrapper {
       width: 95%;
     }
-  }
-
-  .form-title {
-    margin: 0px 0px -10px 0px;
   }
 
   .form-field {
@@ -145,30 +159,25 @@
   .total {
     // margin-top: 20px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
 
-    &__title {
+    &__title,
+    &__price {
       display: flex;
       margin-top: 10px;
-      margin-right: 5px;
-      justify-content: flex-end;
-      height: 20px;
+      margin-left: 5px;
+      height: 25px;
       width: 45%;
       color: $color-brick;
+    }
+
+    &__title {
       font-weight: 700;
       font-size: 20px;
     }
 
     &__price {
-      display: flex;
-      justify-content: flex-start;
-      margin-top: 10px;
-      margin-left: 5px;
-      height: 20px;
-      width: 45%;
-      color: $color-brick;
       font-weight: 500;
       font-size: 28px;
     }

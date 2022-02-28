@@ -24,7 +24,6 @@ import CookiesAndCream from "./components/gallery/pictures/CookiesAndCream.jpeg"
 
 export default function App() {
   const [cart, updateCart] = useState([]);
-  const [underReview, updateReview] = useState({ reviewing: false });
 
   const onAdd = (product) => {
     const inCart = cart.find((x) => x.key === product.key);

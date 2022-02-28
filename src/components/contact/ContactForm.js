@@ -59,7 +59,7 @@ export default function ContactForm() {
   return (
     <form className="contact-form" onSubmit={sendEmail} ref={form}>
       <FormTitle className="contact-form__title" text="Contact Form" />
-      <p>
+      <p className="contact-form__subtitle">
         Have something else in mind? <br /> Send your custom request with this
         form and maybe we can work it out!
       </p>
@@ -166,9 +166,8 @@ export default function ContactForm() {
           className="pickup-date"
           name="pickup_date"
           title="Pickup Date"
-          type="text"
+          type="date"
           value={message.pickup_date}
-          min="10/14/2021"
           placeholder="mm/dd/yyyy"
           onChange={(e) =>
             setMessage({ ...message, pickup_date: e.target.value })
@@ -176,14 +175,14 @@ export default function ContactForm() {
         />
       </div>
       <div className="total">
-        <p className="total__title">Estimated Total</p>
-        <p className="total__price">{total}</p>
+        <span className="total__title">Estimated Total</span>
+        <span className="total__price">{total}</span>
       </div>
       <div className="form-button-wrapper">
         <FormButton
           className="contact-form__submit-message "
           name="submit"
-          title="Submit Form"
+          title="Submit"
           type="Submit"
           largeButton
         />
