@@ -20,7 +20,7 @@ import CaramelApple from "./components/gallery/pictures/CaramelApple.jpeg";
 import Butterscotch from "./components/gallery/pictures/Butterscotch.jpeg";
 import ChocolateSaltedCaramel from "./components/gallery/pictures/ChocolateSaltedCaramel.jpeg";
 import CoconutRaspberry from "./components/gallery/pictures/CoconutRaspberry.jpeg";
-import CookiesAndCream from "./components/gallery/pictures/Cookies&Cream.jpeg";
+import CookiesAndCream from "./components/gallery/pictures/CookiesAndCream.jpeg";
 
 export default function App() {
   const [cart, updateCart] = useState([]);
