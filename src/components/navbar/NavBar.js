@@ -10,7 +10,7 @@ class NavBar extends Component {
     return (
       <div className="navbar hidden" id="navbar">
         <div className="navbar__links">
-          <Link className="navlink" to="/home">
+          <Link className="navlink" to="/">
             Home
           </Link>
           <Link className="navlink" to="/customorder">
