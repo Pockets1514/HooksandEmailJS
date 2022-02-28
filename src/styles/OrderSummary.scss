@@ -9,17 +9,16 @@
   border-radius: 10px;
 
   &__customer-info {
-    // background-color: blue;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 5px;
     justify-content: space-around;
     grid-row: subtotals-s/button-e;
     grid-column: contact-s/contact-e;
   }
 
   &__items {
-    // background-color: yellow;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,7 +29,6 @@
   }
 
   &__submit-order {
-    // background-color: green;
     grid-row: button-s/button-e;
     grid-column: subtotals-s/subtotals-e;
 
@@ -45,7 +43,6 @@
   }
 
   &__totals {
-    // background-color: crimson;
     font-size: 1.5rem;
     grid-row: subtotals-s/subtotals-e;
     grid-column: subtotals-s/subtotals-e;
@@ -112,25 +109,23 @@
   .order-summary {
     margin: 10px 0px 0px 0px;
     display: grid;
-    grid-template-rows: [info-s] 30% [info-e] 1% [subtotal-s] 15% [subtotal-e] 1% [submit-s] 7% [submit-e] 1% [ items-s] 40% [items-e];
+    grid-template-rows: [info-s] 250px [info-e] 10px [subtotal-s] 85px [subtotal-e] 10px [submit-s] 45px [submit-e] 10px [ items-s] 100px [items-e];
     grid-template-columns: [summary-s] 100%[summary-e];
     height: 85vh;
     width: 80vw;
-    background-color: rgb(252, 247, 240, 0.75);
+    background-color: $light-background;
     z-index: 5;
     border-radius: 10px;
 
     &__customer-info {
-      // background-color: blue;
       grid-row: info-s/info-e;
       grid-column: summary-s/summary-e;
       display: grid;
-      grid-template-rows: 5%[first-s] 20% [first-e] 3% [last-s] 20% [last-e] 3% [email-s] 20% [email-e] 3% [date-s] 20% [date-e] 6%;
+      grid-template-rows: [first-s] 50px [first-e] 5px [last-s] 50px [last-e] 5px [email-s] 50px [email-e] 5px [date-s] 50px [date-e] 6%;
       grid-template-columns: [info-s] 100% [info-e];
     }
 
     &__items {
-      // background-color: yellow;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -141,7 +136,6 @@
     }
 
     &__submit-order {
-      // background-color: green;
       grid-row: submit-s/submit-e;
       grid-column: summary-s/summary-e;
 
@@ -149,6 +143,10 @@
       justify-content: center;
       align-items: flex-end;
       button {
+        background-color: $color-brown;
+        color: $light-background;
+        font-weight: bold;
+
         font-size: 1.5rem;
         height: 40px;
         width: 90%;
@@ -156,7 +154,6 @@
     }
 
     &__totals {
-      // background-color: crimson;
       font-size: 1.5rem;
       grid-row: subtotal-s/subtotal-e;
       grid-column: summary-s/summary-e;
