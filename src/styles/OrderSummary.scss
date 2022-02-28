@@ -1,7 +1,7 @@
 .order-summary {
   display: grid;
-  grid-template-rows: 5% [subtotals-s] 30% [subtotals-e] 0% [button-s] 10% [button-e] 5% [items-s] 45% [items-s] 5%;
-  grid-template-columns: [contact-s] 60%[contact-e] 10% [subtotals-s]30% [subtotals-e];
+  grid-template-rows: 5% [subtotals-s] 30% [subtotals-e] 25px [button-s] 10% [button-e] 5% [items-s] 45% [items-s] 5%;
+  grid-template-columns: [contact-s] 60%[contact-e] 20px [subtotals-s]30% [subtotals-e];
   height: 65vh;
   width: 80vw;
   background-color: rgb(252, 247, 240, 0.75);
@@ -47,8 +47,8 @@
     grid-row: subtotals-s/subtotals-e;
     grid-column: subtotals-s/subtotals-e;
     display: grid;
-    grid-template-rows: 5%[subtotal-s]30% [subtotal-e]0% [tax-s]30% [tax-e]0% [total-s]30% [total-e] 5%;
-    grid-template-columns: 5%[label-s] 40% [label-e]5% [amount-s] 40% [amount-e]10%;
+    grid-template-rows: 5%[subtotal-s]30% [subtotal-e]10px [tax-s]30% [tax-e]10px [total-s]30% [total-e] 5%;
+    grid-template-columns: 5%[label-s] minmax(120px, 40%) [label-e]5% [amount-s] 40% [amount-e]10%;
     align-items: center;
     span {
       font-weight: bold;
@@ -67,6 +67,7 @@
     }
     &__total-label {
       grid-row: total-s/total-e;
+      min-width: 70px;
     }
 
     &__subtotal-amount {
@@ -109,7 +110,7 @@
   .order-summary {
     margin: 10px 0px 0px 0px;
     display: grid;
-    grid-template-rows: [info-s] 250px [info-e] 10px [subtotal-s] 85px [subtotal-e] 10px [submit-s] 45px [submit-e] 10px [ items-s] 100px [items-e];
+    grid-template-rows: [info-s] 250px [info-e] 10px [subtotal-s] 95px [subtotal-e] 40px [submit-s] 45px [submit-e] 10px [ items-s] 100px [items-e];
     grid-template-columns: [summary-s] 100%[summary-e];
     height: 85vh;
     width: 80vw;
@@ -158,6 +159,7 @@
       font-size: 1.5rem;
       grid-row: subtotal-s/subtotal-e;
       grid-column: summary-s/summary-e;
+      row-gap: 5px;
       display: grid;
       grid-template-rows: 5%[subtotal-s]30% [subtotal-e]0% [tax-s]30% [tax-e]0% [total-s]30% [total-e] 5%;
       grid-template-columns: 5%[label-s] 40% [label-e]5% [amount-s] 40% [amount-e]10%;
